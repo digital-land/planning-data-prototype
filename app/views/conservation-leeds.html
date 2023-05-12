@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block header %}
+
+<header class="header-nav-container" role="banner"> 
+  <div id="header" class="header-lcc">
+      <section class="sectionHeader">
+          <div class="container-fluid">
+              <div class="header-wrapper">
+                  <div class="header-logo">
+                      <a href="#" title="Go to the homepage" class="logo">Leeds.gov.uk <span class="sr-only"> Go to home page</span></a>
+                  </div>
+                  <div class="header-content">
+                      <div id="header-custom" class="header-custom"> 
+                          <div class="header-button">
+                          <a title="Apply, report or pay" class="btn-account" href="#"> 
+                              <span>Apply, report or pay</span>
+                          </a>
+                      </div>                                
+                      </div>                                  
+                      <div class="header-nav">
+                          <a class="search" href="#" title="Toggle website search">
+                              <span class="sr-only">Toggle website search</span>
+                              <span>Search</span>
+                          </a>
+                          <div class="nav-search" id="nav-search" role="search">
+                              <div class="input-group">
+                                  <!--sharepoint search-->
+                                  <div data-name="search_box">
+                                      <div class="ms-webpart-chrome ms-webpart-chrome-fullWidth ">
+<div webpartid="00000000-0000-0000-0000-000000000000" haspers="true" id="WebPartWPQ1" width="100%" class="ms-WPBody noindex " onlyformepart="true" allowdelete="false" style=""><div componentid="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr" id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr"><div id="SearchBox" name="Control"><div class="ms-srch-sb ms-srch-sb-border" id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr_sboxdiv"><input type="text" value="Search..." maxlength="2048" accesskey="S" title="Search..." id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr_sbox" autocomplete="off" autocorrect="off" onkeypress="EnsureScriptFunc('Search.ClientControls.js', 'Srch.U', function() {if (Srch.U.isEnterKey(String.fromCharCode(event.keyCode))) {$find('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr').search($get('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr_sbox').value);return Srch.U.cancelEvent(event);}})" onkeydown="EnsureScriptFunc('Search.ClientControls.js', 'Srch.U', function() {var ctl = $find('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr');ctl.activateDefaultQuerySuggestionBehavior();})" onfocus="EnsureScriptFunc('Search.ClientControls.js', 'Srch.U', function() {var ctl = $find('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr');ctl.hidePrompt();ctl.setBorder(true);})" onblur="EnsureScriptFunc('Search.ClientControls.js', 'Srch.U', function() {var ctl = $find('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr'); if (ctl){ ctl.showPrompt(); ctl.setBorder(false);}})" class="ms-textSmall ms-srch-sb-prompt ms-helperText"><a title="Search" class="ms-srch-sb-searchLink" id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr_SearchLink" onclick="EnsureScriptFunc('Search.ClientControls.js', 'Srch.U', function() {$find('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr').search($get('ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_csr_sbox').value);})" href="javascript: {}"><img src="/_layouts/15/images/searchresultui.png?rev=23" class="ms-srch-sb-searchImg" id="searchImg" alt="Search"></a></div></div></div><noscript><div id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c_noscript">It looks like your browser does not have JavaScript enabled. Please turn on JavaScript and try again.</div></noscript><div id="ctl00_g_cb087d06_0f78_4b76_b79e_c604e85a2b4c">
+        
+</div><div class="ms-clear"></div></div>
+</div>                                          
+                                  </div>
+                                  <!-- end sharepoint search -->
+                              </div>
+                          </div>   
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+</header>
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   <!--  {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    <h1 class="govuk-heading-xl">
+      Conservation areas
+    </h1>
+ <p>Welcome.</p>
+<!-- {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %} -->
+  </div>
+</div>
+
+{% endblock %}
+

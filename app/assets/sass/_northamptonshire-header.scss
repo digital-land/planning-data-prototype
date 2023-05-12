@@ -1,0 +1,228 @@
+// Northamptonshire header
+
+.jlsLVD {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3px 0px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 5px solid rgb(1, 98, 0);
+    color: rgb(0, 0, 0);
+}
+
+.jFGPKc {
+    background: transparent;
+    overflow: visible;
+    padding-bottom: 0px;
+}
+
+.jheplF {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    display: block;
+    padding: 10px 15px;
+}
+
+@media (min-width: 40.0625em) {
+.jheplF {
+    font-size: 1rem;
+    line-height: 1.25;
+}
+}
+
+@media screen and (min-width: 768px) {
+.bQHHbG {
+    margin-right: 30px;
+    margin-left: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+}
+
+@media screen and (min-width: 768px) {
+.bQHHbG {
+    font-size: 1.1875rem;
+    line-height: 1.45;
+}
+}
+
+.flfZho {
+    overflow: visible;
+    display: grid;
+    -webkit-box-align: center;
+    align-items: center;
+    grid-template-areas: "headerlogo headerlinks headersearch";
+}
+
+.bQHHbG {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.hfTQJq {
+    grid-area: headerlogo / headerlogo / headerlogo / headerlogo;
+}
+
+.koXxBT {
+    display: inline-block;
+}
+
+
+.hhFvdI svg {
+    width: 240px;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+.iOgVPK {
+    grid-area: headerlinks / headerlinks / headerlinks / headerlinks;
+    text-align: right;
+    padding-right: 1em;
+}
+
+.iMkwAi {
+    font-weight: 700;
+    text-decoration: underline;
+    padding: 15px 10px;
+    vertical-align: middle;
+    margin-top: -10px;
+    display: inline-block;
+    color: rgb(1, 98, 0)!important;
+}
+
+.iMkwAi:hover {
+    color: rgb(6, 83, 37);
+    opacity: 1;
+    text-decoration: underline dotted;
+}
+
+.iMkwAi:focus {
+    color: rgb(0, 0, 0);
+    background: rgb(226, 202, 118);
+    outline: none;
+    box-shadow: rgb(226, 202, 118) 0px 0px 0px 1px, rgb(0, 0, 0) 0px 0px 0px 3px;
+    text-decoration: none !important;
+}
+
+.iMkwAi:active {
+    color: rgb(0, 0, 0);
+    background: rgb(226, 202, 118);
+    outline: none;
+    transform: translateY(2px);
+    box-shadow: rgb(226, 202, 118) 0px -6px, rgb(0, 0, 0) 0px 1px;
+    text-decoration: none !important;
+}
+
+.jklvTh {
+    grid-area: headersearch / headersearch / headersearch / headersearch;
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+.dAkqrC {
+    font-size: 1.1875rem;
+    line-height: 1.45;
+}
+}
+
+.dAkqrC {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    width: calc(100% - 3rem);
+}
+
+.crsEWT {
+    position: relative;
+    width: auto;
+    max-width: 750px;
+}
+
+.kGnjAW {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: hidden !important;
+    clip: rect(0px, 0px, 0px, 0px) !important;
+    clip-path: inset(50%) !important;
+    border: 0px !important;
+    white-space: nowrap !important;
+}
+
+.fUzuFl {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 0px;
+}
+
+@media screen and (min-width: 768px) {
+.fPdDDI {
+    font-size: 1.1875rem;
+    line-height: 1.45;
+}
+}
+
+.fPdDDI {
+    display: block;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0px;
+    padding: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    margin-top: 0px !important;
+}
+
+
+@media screen and (min-width: 768px) {
+.kRVdVT {
+    height: 2.28rem;
+}
+}
+
+.kRVdVT {
+    position: absolute;
+    top: 0px;
+    right: -3rem;
+    cursor: pointer;
+    margin: 0px;
+    padding: 10px;
+    background: rgb(1, 98, 0);
+    color: rgb(255, 255, 255);
+    border: 1px solid transparent;
+    border-top-right-radius: calc(6px);
+    border-bottom-right-radius: calc(6px);
+    width: 3rem;
+    text-align: center;
+}
+
+.gFRDSP {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: hidden !important;
+    clip: rect(0px, 0px, 0px, 0px) !important;
+    clip-path: inset(50%) !important;
+    border: 0px !important;
+    white-space: nowrap !important;
+}
