@@ -1,8 +1,7 @@
-module.exports = (router, config) => {
+module.exports = (router, { filePath, locals, urlPath }) => {
 
-  router.all(`${config.urlPath}/:view`, (req, res) => {
-    console.log(req.params.view)
-    res.render(`${config.filePath}/${req.params.view}`, config.locals)
+  router.all(`${urlPath}/blah`, (req, res) => {
+    res.render(`${filePath}/cake`, locals)
   })
 
   return router

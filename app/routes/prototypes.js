@@ -22,18 +22,19 @@ module.exports = (router, rootPath) => {
             locals = require(`${currentFilePath}/support/locals.js`)
         }
 
-        console.log(locals)
-
-        // const prototype = require(`${currentFilePath}/support/router.js`)(router, { 
-        //     urlPath: `/${directory}`, 
-        //     filePath: currentFilePath,
-        //     locals:  { ...locals, ...{ prototypeVersion: directory } }
-        // })
+        locals = { ...locals, ...{ prototypeVersion: directory } }
         
         // Optional prototype assets
         if (fs.existsSync(`${currentFilePath}/assets`)) {
             govukPrototypeKit.requests.serveDirectory(`/${directory}/assets`, `${currentFilePath}/assets`)
         }
+        
+        // load a prototype specific routes file to override what follows if needed
+        const prototype = require(`${currentFilePath}/support/router.js`)(router, { 
+            urlPath: `/${directory}`, 
+            filePath: currentFilePath,
+            locals:  locals
+        })
 
         //remove all trailing slashes
         router.all('\\S+/$', (req, res) => {
@@ -42,14 +43,14 @@ module.exports = (router, rootPath) => {
 
         // render index template when ending a slash
         router.all(`/${directory}/`, (req, res) => {
-            res.render(`${currentFilePath}/index`, { ...locals, ...{ prototypeVersion: directory } })
+            res.render(`${currentFilePath}/index`, locals)
         })
 
         // match url to a template file
-        router.all(`/${directory}/:view`, (req, res) => {
-            console.log(req.params.view)
-            res.render(`${currentFilePath}/${req.params.view}`, { ...locals, ...{ prototypeVersion: directory } })
+        router.all(`/${directory}/:view`, (req, res, next) => {
+            res.render(`${currentFilePath}/${req.params.view}`, locals)
         })
+
 
     }
 
