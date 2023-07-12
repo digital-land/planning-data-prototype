@@ -22,7 +22,13 @@ module.exports = (router, rootPath) => {
             locals = require(`${currentFilePath}/support/locals.js`)
         }
 
-        locals = { ...locals, ...{ prototypeVersion: directory } }
+        locals = { 
+            ...locals, 
+            ...{ 
+                prototypeVersion: directory,
+                prototypeAssets: `${directory}/assets`
+            } 
+        }
         
         // Optional prototype assets
         if (fs.existsSync(`${currentFilePath}/assets`)) {
@@ -50,7 +56,6 @@ module.exports = (router, rootPath) => {
         router.all(`/${directory}/:view`, (req, res, next) => {
             res.render(`${currentFilePath}/${req.params.view}`, locals)
         })
-
 
     }
 
