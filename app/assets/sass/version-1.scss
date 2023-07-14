@@ -1,3 +1,32 @@
 body {
-    border: 10px solid red;
 }
+
+.govuk-footer {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+}
+
+.govuk-footer__link {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+}
+
+.govuk-header__link--homepage {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-size: 1.5rem;
+}
+
+.govuk-header__logo {
+    width: 100%;
+}
+
+.govuk-header__navigation-item a {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+}
+
+.govuk-header__container {
+    position: relative;
+    margin-bottom: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+

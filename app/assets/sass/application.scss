@@ -4,3 +4,18 @@
 // 
 
 // Add extra styles here
+
+
+.govuk-header__container {
+    position: relative;
+    margin-bottom: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+@media (min-width: 48.0625em) {
+.govuk-header__logo {
+    width: 100%;
+}
+}
