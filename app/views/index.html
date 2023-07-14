@@ -5,12 +5,50 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full-width">
 
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
- <p>Welcome to the Planning data team prototype</p>
+ <p>Find planning and housing data that is easy to understand, use and trust. <br>A  platform to help create services to inform planning and housing decisions in England.<br><br></p>
+
+
+ {{ govukTable({
+  caption: "Prototype versions",
+  captionClasses: "govuk-heading-m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Version"
+    },
+    {
+      text: "Date added"
+    },
+    {
+      text: "Description"
+    },
+    {
+      text: "Link"
+    }
+  ],
+  rows: [
+  [
+  {
+    text: "1"
+  },
+  {
+    text: "14  July 2023"
+  },
+  {
+    text: "New prototype to replicate work planning.data.gov.uk and work on fixes and new ideas."
+  },
+  {
+    html: '<a href="/version-1">Version 1</a>'
+  }
+    ] 
+      ]
+    }) }}
+
   </div>
 </div>
 
