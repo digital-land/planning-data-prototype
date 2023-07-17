@@ -1,4 +1,10 @@
 
+@media (min-width: 40.0625em) {
+.govuk-main-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+}
 
 .platform-font {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
