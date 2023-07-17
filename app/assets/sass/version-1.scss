@@ -1,10 +1,4 @@
 
-@media (min-width: 40.0625em) {
-.govuk-main-wrapper {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-}
 
 .platform-font {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
@@ -151,4 +145,9 @@
 
 .app-hero__image img {
     max-width: 100%;
+}
+
+.dl-header .govuk-header__content {
+    width: 100%;
+    padding-left: 0;
 }
