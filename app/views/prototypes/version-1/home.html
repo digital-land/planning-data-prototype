@@ -1,17 +1,107 @@
-{% extends "./layouts/main.html" %}
+{% extends "./layouts/home.html" %}
 
 {% set pageName="Home" %}
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-    <p><img src="{{ prototypeAssets }}/images/test.png" alt=""></p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore qui unde, magni voluptatibus, reprehenderit recusandae blanditiis similique fugit molestiae assumenda hic facilis laudantium officia reiciendis quod minus iste commodi odit?</p>
+  <div class="govuk-grid-column-full">
+
+    <section id="feature-list" class="govuk-width-container">
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-8" id="explore-data-on-a-map">
+        <div class="govuk-grid-column-one-half">
+          
+          <h2 class="govuk-heading-m platform-font">Explore data on a map</h2>
+          
+            <p class="govuk-body platform-font">View planning and housing datasets with geographic location data on an interactive map.</p>
+          
+          
+            <p class="govuk-body">
+              <a href="#" class="govuk-link platform-font">Explore the national map of planning</a>
+            </p>
+          
+        </div>
+        
+          <div class="govuk-grid-column-one-half">
+            <img src="./assets/images/explore.svg" role="presentation" alt="" class="app-max-width--100">
+          </div>
+        
+      </div>
+      
+        <hr class="govuk-section-break govuk-width-container govuk-section-break--visible govuk-section-break--xl">
+      
+  
+      <div class="govuk-grid-row govuk-!-margin-bottom-8" id="search-and-filter-data">
+        <div class="govuk-grid-column-one-half">
+          
+          <h2 class="govuk-heading-m platform-font">Search and filter data</h2>
+          
+            <p class="govuk-body platform-font">Find and download the data you want in bulk.</p>
+          
+          
+            <p class="govuk-body">
+              <a href="#" class="govuk-link platform-font">Search planning and housing data</a>
+            </p>
+          
+        </div>
+        
+          <div class="govuk-grid-column-one-half">
+            <img src="./assets/images/search.svg" role="presentation" alt="" class="app-max-width--100">
+          </div>
+        
+      </div>
+      
+        <hr class="govuk-section-break govuk-width-container govuk-section-break--visible govuk-section-break--xl">
+      
+    
+      <div class="govuk-grid-row govuk-!-margin-bottom-8" id="understand-the-data">
+        <div class="govuk-grid-column-one-half">
+          
+          <h2 class="govuk-heading-m platform-font">Understand the data</h2>
+          
+            <p class="govuk-body platform-font">Read about why data is important to planning and how the data is created.</p>
+          
+          
+            <p class="govuk-body">
+              <a href="#" class="govuk-link platform-font">Find planning and housing datasets</a>
+            </p>
+          
+        </div>
+        
+          <div class="govuk-grid-column-one-half">
+            <img src="./assets/images/datasets.svg" role="presentation" alt="" class="app-max-width--100">
+          </div>
+        
+      </div>
+      
+        <hr class="govuk-section-break govuk-width-container govuk-section-break--visible govuk-section-break--xl">
+      
+    
+      <div class="govuk-grid-row govuk-!-margin-bottom-8" id="use-the-data">
+        <div class="govuk-grid-column-one-half">
+          
+          <h2 class="govuk-heading-m platform-font">Use the data</h2>
+          
+            <p class="govuk-body platform-font">Integrate the Planning Data API with your web application or back office system.</p>
+          
+          
+            <p class="govuk-body">
+              <a href="#" class="govuk-link platform-font">View the API documentation</a>
+            </p>
+          
+        </div>
+        
+          <div class="govuk-grid-column-one-half">
+            <img src="./assets/images/api.svg" role="presentation" alt="" class="app-max-width--100">
+          </div>
+        
+      </div>
+      
+  </section>
   </div>
 </div>
+
 
 {% endblock %}
