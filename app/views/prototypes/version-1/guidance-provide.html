@@ -1,0 +1,172 @@
+{% extends "./layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+
+
+{% block content %}
+
+ <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/guidance/">Guidance</a>
+      </li>
+    </ol>
+  </div> 
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third" id="content_secondary">
+      <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
+      
+
+        
+
+        
+
+        
+<nav class="app-sub-navigation" aria-labelledby="app-sub-navigation-heading">
+  <h2 class="govuk-visually-hidden" id="app-sub-navigation-heading">Guidance navigation</h2>
+  
+    
+      <h3 class="app-sub-navigation__theme">Guidance for local planning authorities</h3>
+      
+    <ul class="app-sub-navigation__section">
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/version-1/guidance-home.html">Guidance home</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/version-1/guidance-intro.html">Introduction</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item app-sub-navigation__section-item--current">
+          <a class="app-sub-navigation__link" aria-current="true" href="/version-1/guidance-provide.html">How to provide data</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/specifications/">Data specifications guidance</a>
+          
+        </li>
+      
+    </ul>
+
+    
+  
+</nav>
+    </div>
+    <div class="govuk-grid-column-two-thirds" id="content_primary">
+
+      
+        
+      <h1 class="govuk-heading-xl">How to provide data</h1>
+    
+  
+
+  <div class="app-prose">
+    
+
+
+
+<p class="govuk-body">The Planning Data platform gathers data from local planning authorities (LPAs) across England. We do this in order to make the data more open and accessible, so better planning decisions are made.</p>
+<p class="govuk-body">This guidance will take you through the process of publishing data that meets the technical specifications required by the Planning Data platform.</p>
+<hr class="govuk-section-break govuk-section-break--l">
+<h2 class="govuk-heading-l" id="steps">Steps</h2>
+<ol class="govuk-list govuk-list--number">
+<li>
+<p class="govuk-body"><a class="govuk-link" href="#step-1-prepare-your-data">Prepare your data</a></p>
+</li>
+<li>
+<p class="govuk-body"><a class="govuk-link" href="#step-2-provide-your-documentation">Provide your documentation</a></p>
+</li>
+<li>
+<p class="govuk-body"><a class="govuk-link" href="#step-3-create-or-update-the-webpage-hosting-your-data">Create or update the webpage hosting your data</a></p>
+</li>
+<li>
+<p class="govuk-body"><a class="govuk-link" href="#step-4-tell-planning-data-where-the-webpage-is">Tell Planning Data where the webpage is</a></p>
+</li>
+</ol>
+<hr class="govuk-section-break govuk-section-break--l">
+<h2 class="govuk-heading-l" id="step-1-prepare-your-data">Step 1: Prepare your data</h2>
+<p class="govuk-body">The data needed for the Digital Planning Services such as <a class="govuk-link" href="https://www.ripa.digital">RIPA</a> are:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li><a class="govuk-link" href="specifications/conservation-area">Conservation area data</a></li>
+<li><a class="govuk-link" href="specifications/listed-building">Listed building data</a></li>
+<li><a class="govuk-link" href="specifications/article-4-direction">Article 4 direction data</a></li>
+<li><a class="govuk-link" href="specifications/tree-preservation-order">Tree preservation order data</a></li>
+</ul>
+<p class="govuk-body">You may need to create more than one set of data for each subject. You'll find what to include in the <a class="govuk-link" href="specifications/">data specifications guidance</a>.</p>
+<p class="govuk-body">We will accept data supplied as either:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>CSV</li>
+<li>GeoJSON</li>
+<li>GML</li>
+<li>Geopackage</li>
+</ul>
+<p class="govuk-body">These may be uploaded to a single URL, or served via an OGC WFS or ArcGIS API.</p>
+<p class="govuk-body">It’s important that the data used in Digital Planning Services is as up to date as possible - whatever data you provide us with must be maintained and updated to reflect changes in your planning constraints.</p>
+<hr class="govuk-section-break govuk-section-break--l">
+<h2 class="govuk-heading-l" id="step-2-provide-your-documentation">Step 2: Provide your documentation</h2>
+<p class="govuk-body">For most data subjects, you must also publish links to supporting documentation that gives evidence that the data is correct.</p>
+<p class="govuk-body">See the <a class="govuk-link" href="specifications/">data specifications guidance</a> for how to provide this for each different subject.</p>
+<p class="govuk-body">We have preferred formats for each field. We automatically change the formats of some fields, for example the dates.</p>
+<hr class="govuk-section-break govuk-section-break--l">
+<h2 class="govuk-heading-l" id="step-3-create-or-update-the-webpage-hosting-your-data">Step 3: Create or update the webpage hosting your data</h2>
+<p class="govuk-body">To complete step 3, you must be able to edit a webpage on your LPA's official website. This will probably have a URL ending in .gov.uk or .org.</p>
+<p class="govuk-body">If you aren't able or authorised to do this, please speak to a person who updates your organisation's website.</p>
+<h3 class="govuk-heading-m" id="create-a-webpage">Create a webpage</h3>
+<p class="govuk-body">Create a separate webpage for each dataset. This webpage must have a URL that does not change, so the Planning Data platform can keep collecting the data.</p>
+<p class="govuk-body">If the URL does change, please email <a class="govuk-link" href="mailto:digitalland@levellingup.gov.uk">digitalland@levellingup.gov.uk</a>.</p>
+<p class="govuk-body">You may want to use an alias to create a short URL that is easy to remember. For example: https://www.yourLPA.gov.uk/conservation-area-data</p>
+<h3 class="govuk-heading-m" id="describe-the-data">Describe the data</h3>
+<p class="govuk-body">Add a short description of the data on the page. We recommend including these descriptors as a minimum:</p>
+<p class="govuk-body"><strong>Summary</strong></p>
+<p class="govuk-body">Briefly explain what the data is about. For example:</p>
+<p class="govuk-body">This dataset shows the locations of conservation areas. Conservation areas are designated to safeguard areas of special architectural and historic interest, the character and appearance of which it is desirable to preserve or enhance. Within these areas special planning controls operate which need to be considered when undertaking development.</p>
+<p class="govuk-body"><strong>Licensing</strong></p>
+<p class="govuk-body">State that the data is provided under the <a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a>.</p>
+<p class="govuk-body"><strong>Last updated</strong></p>
+<p class="govuk-body">The date you are creating or updating the webpage.</p>
+<p class="govuk-body"><strong>Link to your data</strong></p>
+<p class="govuk-body">Publish the links to your data on this page. Depending on what format you supply the data in, this could be the uploaded CSV, GeoJSON or GML files, or the link to the OGC WFS service.</p>
+<hr class="govuk-section-break govuk-section-break--l">
+<h2 class="govuk-heading-l" id="step-4-tell-planning-data-where-the-webpage-is">Step 4: Tell Planning Data where the webpage is</h2>
+<p class="govuk-body">If you are creating a new webpage, you must tell us the URL. Email the URL of the webpage containing your files to <a class="govuk-link" href="mailto:digitalland@levellingup.gov.uk">digitalland@levellingup.gov.uk</a>.</p>
+<p class="govuk-body">If you have already told us, you can skip this step. The Planning Data platform will regularly collect data from the URL you have given us.</p>
+<p class="govuk-body">If the URL ever changes, please tell us.</p>
+
+
+  </div>
+  <!-- /.app-prose -->
+</div>
+  </div>
+
+
+{% endblock %}
