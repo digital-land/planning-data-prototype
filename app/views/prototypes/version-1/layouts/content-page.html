@@ -8,7 +8,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 <header class="govuk-header " role="banner" data-module="govuk-header">
-    <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__container govuk-header__container-border govuk-width-container">
       <div class="govuk-header__logo">
         <a href="#" class="govuk-header__link govuk-header__link--homepage">
           <span class="govuk-header__logotype">
@@ -18,7 +18,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
           </span>
         </a>
       </div>
-      <nav class="govuk-header__navigation" aria-label="Menu">
+      <nav class="govuk-header__navigation govuk-header__navigation--less-margin" aria-label="Menu">
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">Menu</button>
         <ul id="navigation" class="govuk-header__navigation-list">
           
@@ -47,59 +47,22 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     </div>
   </header>
 
-  
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-  <div class="app-hero app-hero--large govuk-!-margin-bottom-4">
-    <div class="govuk-width-container">
-      
-  <div class="govuk-phase-banner app-phase-banner--inverse">
-    <p class="govuk-phase-banner__content">
-      <strong class="govuk-tag govuk-phase-banner__content__tag app-tag--inverse">
-        Beta
-      </strong>
-      <span class="govuk-phase-banner__text">
-        This is a new service.
-      </span>
-    </p>
-  </div>
-  
-  
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds-from-desktop">
-        
-          <h1 class="app-hero__title">
-            Find planning and housing data that is easy to understand, use and trust
-          </h1>
-        
-        
-          <p class="app-hero__description">
-            A platform to help you create services to inform planning and housing decisions in England.
-          </p>
-        
-        
-        
-        <p class="app-hero__description">
-          Learn more 
-          
-            <a href="#" class="govuk-link app-hero__cta-link">about the platform</a>
-          
-        </p>
-        
-        </div>
-        
-        <div class="govuk-grid-column-one-third-from-desktop">
-          <div class="app-hero__image">
-            <img src="./assets/images/proposition-image.svg" alt="" role="presentation">
-          </div>
-        </div>
-        
-      </div>
+
+  <div class="govuk-width-container ">
+
+    <div class="govuk-phase-banner ">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag ">
+          Beta
+        </strong>
+        <span class="govuk-phase-banner__text">
+          This is a new service.
+        </span>
+      </p>
     </div>
-  </div>
   
-  </div>
-  </div>
+    </div>
+
 
 
   
@@ -126,7 +89,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
               </a>
             </li>
             <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="guidance-home">
+              <a class="govuk-footer__link" href="#">
                 Guidance for publishers
               </a>
             </li>
