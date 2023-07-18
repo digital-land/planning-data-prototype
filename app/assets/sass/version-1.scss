@@ -25,12 +25,24 @@
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
 }
 
+
+@media (min-width: 48.0625em) {
+.govuk-header__navigation--less-margin {
+    margin-bottom: 0px;
+}
+}
+
+
 .govuk-header__container {
     position: relative;
     margin-bottom: -10px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: none;
+}
+
+.govuk-header__container-border {
+    border-bottom: 10px solid #1d70b8;
 }
 
 .app-hero {
@@ -60,6 +72,7 @@
 .govuk-phase-banner__text {
     display: table-cell;
     vertical-align: middle;
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 .app-tag--inverse {
@@ -146,4 +159,71 @@
 .dl-header .govuk-header__content {
     width: 100%;
     padding-left: 0;
+}
+
+
+.app-sub-navigation {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+}
+
+
+@media (min-width: 40.0625em) {
+.app-sub-navigation {
+    font-size: 1rem;
+    line-height: 1.25;
+}
+}
+
+
+.app-sub-navigation__theme {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    color: #505a5f;
+    margin: 0;
+    padding: 10px 15px 10px 0;
+}
+
+.app-sub-navigation__section {
+    list-style-type: none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+.app-sub-navigation__section-item--current {
+    background-color: #ffffff;
+    border-left: 4px solid #1d70b8;
+    margin-left: -14px;
+    padding-left: 10px;
+}
+
+.app-sub-navigation__section-item {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.app-sub-navigation__link:not(:hover):not(:active) {
+    text-decoration: none;
+}
+
+.app-sub-navigation__link:visited {
+    color: #1d70b8;
+}
+.app-sub-navigation__link {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-underline-offset: 0.2em;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.app-sub-navigation__link[aria-current] {
+    font-weight: bold;
+}
+
+.app-sub-navigation__link:visited {
+    color: #1d70b8;
 }
