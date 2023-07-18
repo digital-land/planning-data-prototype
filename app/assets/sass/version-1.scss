@@ -241,7 +241,7 @@
     font-weight: 400;
 }
 
-.app-prose p, .app-prose h2, .app-prose h3, .app-prose dl, .app-prose blockquote p {
+.app-prose p, .app-prose h2, .app-prose h3, .app-prose li, .app-prose dl, .app-prose blockquote p {
     max-width: 38rem;
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
@@ -280,6 +280,12 @@
         line-height: 1.31579;
         }   
     }
+
+    @media (min-width: 40.0625em) {
+    .app-prose ul:not([class]) > li {
+        margin-bottom: 5px;
+    }
+}
 
 .app-sub-navigation__section--nested {
     margin-bottom: 0;
