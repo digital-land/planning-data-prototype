@@ -1,0 +1,116 @@
+{% extends "./layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/guidance/">Guidance</a>
+    </li>
+    
+  
+    
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../specifications/">specifications</a>
+    </li>
+    
+  
+  </ol>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third" id="content_secondary">
+      <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
+      
+
+        
+
+        
+
+        
+<nav class="app-sub-navigation" aria-labelledby="app-sub-navigation-heading">
+  <h2 class="govuk-visually-hidden" id="app-sub-navigation-heading">Guidance navigation</h2>
+  
+    
+      <h3 class="app-sub-navigation__theme">Guidance for local planning authorities</h3>
+      
+    <ul class="app-sub-navigation__section">
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/">Guidance home</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/introduction">Introduction</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/how-to-provide-data">How to provide data</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item app-sub-navigation__section-item--current"">
+          <a class="app-sub-navigation__link" href="/guidance/specifications/" aria-current="true">Data specifications guidance</a>
+          
+        </li>
+      
+    </ul>
+
+    
+  
+</nav>
+    </div>
+    <div class="govuk-grid-column-two-thirds" id="content_primary">
+
+    <h1 class="govuk-heading-xl">Data specifications for local planning authorities</h1>
+    
+      <div class="app-prose">
+
+     
+    <p>Guidance about how to collate each dataset including examples of data for each of the fields (rows).</p>
+
+    <ul class="govuk-list govuk-list--spaced">
+        <li><a href="specifications-conservation-area">Conservation area data</a></li>
+        <li><a href="specifications-listed-building">Listed building data</a></li>
+        <li><a href="specifications-article-4-direction">Article 4 Direction data</a></li>
+        <li><a href="specifications-tree-preservation-order">Tree preservation order data</a></li>
+      </ul> 
+
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

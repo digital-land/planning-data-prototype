@@ -1,0 +1,238 @@
+{% extends "./layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+    <ol class="govuk-breadcrumbs__list">
+    
+      
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/guidance/">Guidance</a>
+      </li>
+      
+    
+      
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../specifications/">specifications</a>
+      </li>
+      
+    
+    </ol>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third" id="content_secondary">
+      <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
+      
+
+        
+
+        
+
+        
+<nav class="app-sub-navigation" aria-labelledby="app-sub-navigation-heading">
+  <h2 class="govuk-visually-hidden" id="app-sub-navigation-heading">Guidance navigation</h2>
+  
+    
+      <h3 class="app-sub-navigation__theme">Guidance for local planning authorities</h3>
+      
+    <ul class="app-sub-navigation__section">
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/">Guidance home</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/introduction">Introduction</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="/guidance/how-to-provide-data">How to provide data</a>
+          
+        </li>
+      
+        
+        
+        
+        
+          
+        
+        <li class="app-sub-navigation__section-item app-sub-navigation__section-item--current"">
+          <a class="app-sub-navigation__link" href="specifications-home">Data specifications guidance</a>
+          
+          <ul class="app-sub-navigation__section app-sub-navigation__section--nested">
+              
+            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+              <a class="app-sub-navigation__link" href="specifications-conservation-area" >Conservation area data</a>
+            </li>
+          
+            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+              <a class="app-sub-navigation__link" href="specifications-design-code">Design code data</a>
+            </li>
+          
+            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+              <a class="app-sub-navigation__link" href="specifications-listed-building">Listed building data</a>
+            </li>
+          
+            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+              <a class="app-sub-navigation__link" href="specifications-article-4-direction" aria-current="true">Article 4 Direction data</a>
+            </li>
+          
+            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+              <a class="app-sub-navigation__link" href="specifications-tree-preservation-order">Tree preservation order data</a>
+            </li>
+          
+        </ul>
+        </li>
+      
+    </ul>
+
+    
+  
+</nav>
+    </div>
+    <div class="govuk-grid-column-two-thirds" id="content_primary">
+
+      <h1 class="govuk-heading-xl">Article 4 direction data</h1>
+        
+      
+
+      <div class="app-prose">
+        
+
+    
+
+    <p class="govuk-body">There are 2 datasets you must provide for article 4 directions:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li><a class="govuk-link" href="#article-4-direction-dataset">article 4 direction dataset</a></li>
+<li><a class="govuk-link" href="#article-4-direction-area">article 4 direction area dataset</a></li>
+</ul>
+<h2 class="govuk-heading-l" id="format">Format</h2>
+<p class="govuk-body">You can provide data in one of these formats:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>CSV</li>
+<li>GeoJSON</li>
+<li>GML</li>
+<li>Geopackage</li>
+</ul>
+<p class="govuk-body">For more information, see <a class="govuk-link" href="../how-to-provide-data">how to provide your data</a>.</p>
+<hr class="govuk-section-break govuk-section-break--l"/>
+<h2 class="govuk-heading-l" id="article-4-direction-dataset">Article 4 direction dataset</h2>
+<p class="govuk-body">This dataset is about article 4 directions. These are directions from local planning authorities to withdraw specified permitted development rights across a defined area.</p>
+<p class="govuk-body">The dataset must contain at least one entry (row) for each article 4 direction.
+It must containing the following fields (columns):</p>
+<h3 class="govuk-heading-m" id="reference">reference</h3>
+<p class="govuk-body">A reference or ID for each article 4 direction that is:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>unique within your dataset</li>
+<li>permanent - it doesn’t change when the dataset is updated</li>
+</ul>
+<p class="govuk-body">If you don’t use a reference already, you will need to create one. This can be a short set of letters or numbers.
+Example: <code class="app-code">A4D1</code></p>
+<h3 class="govuk-heading-m" id="name">name</h3>
+<p class="govuk-body">The official name of the article 4 direction.</p>
+<p class="govuk-body">Example: <code class="app-code">Old Market</code></p>
+<h3 class="govuk-heading-m" id="description">description</h3>
+<p class="govuk-body">Optional short description of the article 4 direction’s purpose.</p>
+<p class="govuk-body">Example: The railways arches should not be demolished or have their use changed from commercial to residential.</p>
+<h3 class="govuk-heading-m" id="document-url">document-url</h3>
+<p class="govuk-body">The URL of an authoritative order or notice designating the article 4 direction.</p>
+<p class="govuk-body">Example: <code class="app-code">http://www.LPAwebsite.org.uk/article4direction1.pdf</code></p>
+<h3 class="govuk-heading-m" id="documentation-url">documentation-url</h3>
+<p class="govuk-body">The URL of the webpage citing the document.</p>
+<p class="govuk-body">Each document should be linked to on a documentation webpage that includes a short description of the data. The website URL should be unique for each article 4 direction, either by creating a separate page or a separate anchor (fragment identifier) for each one.</p>
+<p class="govuk-body">Example: <code class="app-code">http://www.LPAwebsite.org.uk/data#article4direction</code></p>
+<h3 class="govuk-heading-m" id="notes">notes</h3>
+<p class="govuk-body">Optional text on how this data was made or produced, or how it can be interpreted.</p>
+<h3 class="govuk-heading-m" id="start-date">start-date</h3>
+<p class="govuk-body">The date that the article 4 direction came into force, written in <code class="app-code">YYYY-MM-DD</code> format.</p>
+<p class="govuk-body">Example: <code class="app-code">1984-03-28</code></p>
+<h3 class="govuk-heading-m" id="end-date">end-date</h3>
+<p class="govuk-body">If applicable, the date that the article 4 direction was no longer in effect, written in <code class="app-code">YYYY-MM-DD</code> format. If this does not apply, leave the cell blank.
+Example: <code class="app-code">1999-01-20</code></p>
+<h3 class="govuk-heading-m" id="entry-date">entry-date</h3>
+<p class="govuk-body">The date this dataset was created or last updated, written in <code class="app-code">YYYY-MM-DD</code> format.
+Example: 2022-12-20</p>
+<hr class="govuk-section-break govuk-section-break--l"/>
+<h2 class="govuk-heading-l" id="article-4-direction-area">Article 4 direction area</h2>
+<p class="govuk-body">This dataset is about the geometry that each article 4 direction refers to.</p>
+<p class="govuk-body">The dataset must contain at least one entry (row) for each article 4 direction area.</p>
+<p class="govuk-body">It must containing the following fields (columns):</p>
+<h3 class="govuk-heading-m" id="reference">reference</h3>
+<p class="govuk-body">A reference or ID for each article 4 direction area that is:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>unique within your dataset</li>
+<li>permanent - it doesn’t change when the dataset is updated</li>
+</ul>
+<p class="govuk-body">If you don’t use a reference already, you will need to create one. This can be a short set of letters or numbers.</p>
+<p class="govuk-body">Example: <code class="app-code">A4Da1</code></p>
+<h3 class="govuk-heading-m" id="name">name</h3>
+<p class="govuk-body">The official name of the article 4 direction.
+Example: Old Market
+geometry</p>
+<p class="govuk-body">The boundary for the article 4 direction area as a single polygon or multipolygon value. Points must be in the WGS84 coordinate reference system.</p>
+<p class="govuk-body">This should be in GeoJSON format.</p>
+<p class="govuk-body">Example: <code class="app-code">MULTIPOLYGON (((1.188829 51.23478,1.188376 51.234909,1.188381 51.234917,1.187912 51.235022...</code></p>
+<h3 class="govuk-heading-m" id="uprn">uprn</h3>
+<p class="govuk-body">If the geometry is the boundary of a building, you can provide the Unique Property Reference Number (UPRN). Find the UPRN on GeoPlace.</p>
+<p class="govuk-body">If you provide the UPRN, you must also provide the address text.</p>
+<h3 class="govuk-heading-m" id="address-text">address-text</h3>
+<p class="govuk-body">If the geometry is the boundary of a building, you can provide the address of the article 4 direction, written as text.</p>
+<p class="govuk-body">If you provide the address text, you must also provide the UPRN.</p>
+<p class="govuk-body">Example: <code class="app-code">100 High Street, Bath</code></p>
+<h3 class="govuk-heading-m" id="article-4-direction">article-4-direction</h3>
+<p class="govuk-body">The reference for the article 4 direction used in the article 4 direction dataset.</p>
+<p class="govuk-body">Example: <code class="app-code">A4D1</code></p>
+<h3 class="govuk-heading-m" id="article-4-direction-rules">article-4-direction-rules</h3>
+<p class="govuk-body">The list of references of article 4 direction rules which apply to this area, as found in the <a class="govuk-link" href="https://www.planning.data.gov.uk/dataset/article-4-direction-rule">article 4 direction rule dataset</a>. In many cases the article 4 direction rule is a reference to the permitted development right removed by the rule.</p>
+<p class="govuk-body">If the rule you need does not exist in our list, please contact <a class="govuk-link" href="digitalland@levellingup.gov.uk">digitalland@levellingup.gov.uk</a>.</p>
+<p class="govuk-body">Example: <code class="app-code">P3CD;P3CM;P11CB</code></p>
+<h3 class="govuk-heading-m" id="notes">notes</h3>
+<p class="govuk-body">Optional text on how this data was made or produced, or how it can be interpreted.</p>
+<h3 class="govuk-heading-m" id="start-date">start-date</h3>
+<p class="govuk-body">The date that the article 4 direction came into force, written in <code class="app-code">YYYY-MM-DD</code> format.</p>
+<p class="govuk-body">Example: <code class="app-code">1984-03-28</code></p>
+<h3 class="govuk-heading-m" id="end-date">end-date</h3>
+<p class="govuk-body">If applicable, the date that the article 4 direction was no longer in effect, written in <code class="app-code">YYYY-MM-DD</code> format. If this does not apply, leave the cell blank.
+Example: <code class="app-code">1999-01-20</code></p>
+<h3 class="govuk-heading-m" id="entry-date">entry-date</h3>
+<p class="govuk-body">The date this dataset was created or last updated, written in <code class="app-code">YYYY-MM-DD</code> format.</p>
+<p class="govuk-body">Example: <code class="app-code">2022-12-20</code></p>
+<hr class="govuk-section-break govuk-section-break--l"/>
+<p class="govuk-body">Go to <a class="govuk-link" href="../how-to-provide-data">how to provide your data</a>.</p>
+
+
+      </div>
+<!-- /.app-prose -->
+</div>
+<!-- /.govuk-grid-column-two-thirds -->
+</div>
+<!-- /.govuk-grid-row -->
+
+
+
+{% endblock %}

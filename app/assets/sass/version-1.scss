@@ -75,6 +75,12 @@
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
+.app-prose code {
+    background-color: #f3f2f1;
+    font-family: monospace;
+    padding: 2px 5px;
+}
+
 .app-tag--inverse {
     color: #1d70b8;
     background-color: #ffffff;
@@ -227,3 +233,11 @@
 .app-sub-navigation__link:visited {
     color: #1d70b8;
 }
+
+.app-sub-navigation__section--nested {
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding-left: 20px;
+
+}
+ 
