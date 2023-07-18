@@ -234,6 +234,12 @@
     color: #1d70b8;
 }
 
+.app-sub-navigation__section--nested .app-sub-navigation__section-item:before {
+    color: #505a5f;
+    content: "—";
+    margin-left: -20px;
+}
+
 
 .app-prose {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
