@@ -2,27 +2,27 @@
 
 {% set pageName="Home" %}
 
+{%- block breadcrumbs -%}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="guidance-home">Guidance</a>
+      </li>
 
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="specifications-home">specifications</a>
+      </li>
+
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="specifications-article-4">article 4 direction</a>
+      </li>
+      
+    </ol>
+  </div> 
+{% endblock breadcrumbs%}
 
 {% block content %}
 
-<div class="govuk-breadcrumbs ">
-    <ol class="govuk-breadcrumbs__list">
-    
-      
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="/guidance/">Guidance</a>
-      </li>
-      
-    
-      
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="../specifications/">specifications</a>
-      </li>
-      
-    
-    </ol>
-  </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third" id="content_secondary">
