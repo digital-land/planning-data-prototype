@@ -42,19 +42,33 @@ module.exports = (router, rootPath) => {
             locals:  locals
         })
 
-        //remove all trailing slashes
-        router.all('\\S+/$', (req, res) => {
-            res.redirect(301, req.path.slice(0, -1) + req.url.slice(req.path.length))
-        })
-
         // render index template when ending a slash
-        router.all(`/${directory}/`, (req, res) => {
-            res.render(`${currentFilePath}/index`, locals)
+        router.all([`/${directory}/`, `/${directory}`], (req, res) => {
+            res.redirect(`/${directory}/index`)
         })
 
         // match url to a template file
         router.all(`/${directory}/:view`, (req, res, next) => {
             res.render(`${currentFilePath}/${req.params.view}`, locals)
+        })
+
+
+        // this is quick and very dirty just to get sam and martin up and running
+        router.all(`/${directory}/:subdir/:view`, (req, res, next) => {
+            if (req.params.subdir == 'assets') {
+                next()
+            } else {
+                res.render(`${currentFilePath}/${req.params.subdir}/${req.params.view}`, locals)
+            }
+        })
+        
+        // this is quick and very dirty just to get sam and martin up and running
+        router.all(`/${directory}/:subdir/:subsubdir/:view`, (req, res, next) => {
+            if (req.params.subdir == 'assets') {
+                next()
+            } else {
+                res.render(`${currentFilePath}/${req.params.subdir}/${req.params.subsubdir}/${req.params.view}`, locals)
+            }
         })
 
     }
