@@ -1,0 +1,967 @@
+{% extends "../layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+{%- block breadcrumbs -%}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Documentation</a>
+      </li>
+    </ol>
+  </div> 
+{% endblock breadcrumbs%}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third" id="content_secondary">
+      <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
+      
+        
+
+    </div>
+    <div class="govuk-grid-column-two-thirds" id="content_primary">
+
+      <div class="govuk-caption-xl">Planning Data</div>
+      <h1 class="govuk-heading-xl">Documentation</h1>
+  
+      <h2 class="govuk-heading-m">Downloading the data</h2>
+      <p class="govuk-body">You can download datasets in bulk in various formats from each <a href="/dataset">dataset page</a>.</p>
+      <p class="govuk-body">Downloads are available as CSV, JSON and where applicable as GeoJSON.</p>
+  
+      <h2 class="govuk-heading-m">Getting the data through the API</h2>
+      <p class="govuk-body">We are also developing an experimental API. Developers can use these APIs to explore our data and test services. As we are still in beta,
+        these should not be used for building production-ready systems.</p>
+      <p class="govuk-body">You can read about the API below. Get in touch with the team if you are interested in building a service using the planning data API.</p>
+  
+      <hr class="govuk-section-break govuk-section-break--m">
+  
+      <p class="govuk-body">Contents:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#api">Planning data API</a></li>
+        <li><a href="#openapi">Planning data OpenAPI</a></li>
+      </ul>
+  
+      <hr class="govuk-section-break govuk-section-break--l">
+    
+
+      </div>
+    </div>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+    
+        <h2 class="govuk-heading-l" id="api">Planning Data API</h2>
+    
+        <!-- openapi schema generally has info,paths and components -->
+    
+ 
+          <!-- for path in params.paths.keys() -->
+   
+          
+    
+          
+      <section class="app-summary-card govuk-!-margin-bottom-6">
+        
+        <header class="app-summary-card__header">
+          
+          <h2 class="app-summary-card__title"> Search entity </h2>
+          
+        </header>
+        
+        
+        <div class="app-summary-card__body">
+   
+            <p class="govuk-body">Search for data on the planning data platform by the parameters listed.</p>
+    
+            
+      <table class="govuk-table">
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Request type</th>
+          <th scope="col" class="govuk-table__header">URL</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+          
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" ><strong class="govuk-tag govuk-tag--green">GET</strong></td>
+ 
+       <td class="govuk-table__cell govuk-!-font-size-16"><span class="app-code-block">/entity.{extension}</span></td>
+
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+
+    
+    <div class="dl-data-table__wrapper" data-module="scrollable-table">
+        <div class="dl-data-table-left-shadow with-transition"></div>
+        <div class="wide-table">
+            
+              
+      <table class="govuk-table">
+      
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-hint">Parameters</caption>
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Name</th>
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Type</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half govuk-!-font-size-16">Description</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+          
+            <tr class="govuk-table__cell govuk-!-font-size-14">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">extension</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+              </td>
+                     
+              <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16"> Must be one of: json, html or geojson</td>  
+            
+            </tr>
+          
+      
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">typology</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+   
+        <td class="govuk-table__cell govuk-!-font-size-14"> array(string) </td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by typology </td>
+         </tr>
+          
+            <tr class="govuk-table__row">
+            
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">dataset</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14"> array(string) </td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by dataset </td>
+              
+            
+            </tr>
+          
+
+            <tr class="govuk-table__row">
+            
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">organisation_entity</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(integer) </td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities managed by organisation</td>
+              
+            
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+            
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entity</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(integer)</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by entity number</td>
+              
+    
+            </tr>
+
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">curie</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14" >array(string) </td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by CURIE</td>     
+            </tr>
+          
+
+            <tr class="govuk-table__row">
+            
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">prefix</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14"> array(string)</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by prefix</td>
+              
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">reference</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(string)</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by reference</td>
+
+            </tr>
+          
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entries</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+            
+            <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+            <td class="govuk-table__cell govuk-!-font-size-16">Results to include current, or all entries</td>
+   
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">start_date_year</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+   
+              
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by start date year before or after the given year. Depends on start_date_match</td>
+              
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">start_date_month</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by start date month before or after the given year. Depends on start_date_match</td>
+
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">start_date_day</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+  
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16" > Search for entities by start date day before or after the given day. Depends on start_date_match 
+          
+        </td> 
+            
+            </tr>
+           
+          
+            <tr class="govuk-table__row">
+               <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">start_date_match</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14" >string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Specify how to filter against the start_date_* values provided, either before, after or match</td> 
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_year</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search by end date year before or after the given year. Depends on end_date_match</td>
+            </tr>
+
+          
+            <tr class="govuk-table__row">
+            
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_month</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16" >Search for entities by end date month before or after the given month.Depends on end_date_match </td>
+              
+            
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+            
+              
+              
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_day</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+            
+              
+              
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by end date day before or after the given day. Depends on end_date_match
+            
+          
+        </td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+            
+              
+              
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_match</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+            
+              
+              
+              <td class="govuk-table__cell">string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">
+          
+            Specify how to filter against the end_date_* values provided, either before, after or match
+          
+        </td>
+              
+            
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+            
+              
+              
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entry_date_year</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+            
+              
+              
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by entry date year before or after the given year. Depends on entry_date_match </td>
+              
+
+            </tr>
+
+            <tr class="govuk-table__row">
+            
+              
+              
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entry_date_month</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+  
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Search for entities for entities by entry date month before or after the given month.Depends on entry_date_match </td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entry_date_day</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by entry date day before or after the given day. Depends on entry_date_match</td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+             <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entry_date_match</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              
+              <td class="govuk-table__cell govuk-!-font-size-14" >string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Specify for entities how to filter against the entry_date_* values provided, either before, after or match </td>
+              
+            
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">longitude</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">number</td>
+
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entity with geometries intersected by a point constructed with this longitude.
+            Requires latitude to be provided.</td></tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">latitude</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14" >number</td>
+              <td class="govuk-table__cell govuk-!-font-size-16" >Search for entities with geometries intersected by a point constructed with this latitude.
+            Requires longitude to be provided.</td>
+
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">geometry</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(string)</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities with geometries intersecting with one or more geometries provided in WKT format</td>
+
+            </tr>
+          
+        
+          
+            <tr class="govuk-table__row">
+            
+            <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">geometry_entity</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14" >array(integer)</td>
+
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities with geometries intersecting with one or more geometries
+            taken from each of the provided entities </td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">geometry_reference</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14" >array(string)</td>
+
+              <td class="govuk-table__cell govuk-!-font-size-16">Search entities with geometries intersecting with the geometries of
+            entities with the provided references</td>
+              
+            
+            </tr>
+
+          
+            <tr class="govuk-table__row">
+
+              
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">geometry_curie</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(string) </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-16">Search for entities with geometries intersecting with geometries
+            entities matching provided curies</td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">geometry_relation</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+        <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">DE-9IM spatial relationship, default is &#39;within&#39; </td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">limit</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+         <td class="govuk-table__cell govuk-!-font-size-16">limit for the number of results
+    
+        </td>
+                     
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">offset</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">paginate results from this entity</td>
+
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">field</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">array(string)</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">fields to be included in response</td>
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+    
+            
+        </div>
+        <div class="dl-data-table-right-shadow visible with-transition"></div>
+    </div>
+ 
+        </div>
+        
+      </section>
+    
+          
+  
+      <section class="app-summary-card govuk-!-margin-bottom-6">
+        
+        <header class="app-summary-card__header">
+          
+          <h2 class="app-summary-card__title">
+            Get entity
+          </h2>
+          
+        </header>
+        
+        
+        <div class="app-summary-card__body">
+
+            <p class="govuk-body">Get Entity</p>
+    
+            
+      <table class="govuk-table">
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Request type</th>
+          <th scope="col" class="govuk-table__header">URL</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+          
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">get </strong></td>
+            <td class="govuk-table__cell govuk-!-font-size-16"><span class="app-code-block">/entity/{entity}.{extension}</span></td>
+
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+
+    <div class="dl-data-table__wrapper" data-module="scrollable-table">
+        <div class="dl-data-table-left-shadow with-transition"></div>
+        <div class="wide-table">
+            
+              
+      <table class="govuk-table">
+      
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-hint">Parameters</caption>
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Name</th>
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Type</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half govuk-!-font-size-16">Description</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+            <tr class="govuk-table__row">
+            
+        <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entity</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+        </td>
+
+        <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
+        <td class="govuk-table__cell govuk-!-font-size-16">Entity id</td>
+              
+            
+            </tr>
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">extension</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+        </td>
+
+              
+        <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+        <td class="govuk-table__cell govuk-!-font-size-16" >Must be one of: json, html or geojson</td>
+
+            </tr>
+          
+        
+      </tbody>
+    </table>
+
+            
+        </div>
+        <div class="dl-data-table-right-shadow visible with-transition"></div>
+    </div>
+
+  
+        </div>
+        
+      </section>
+    
+    
+          
+      <section class="app-summary-card govuk-!-margin-bottom-6">
+        
+        <header class="app-summary-card__header">
+          
+          <h2 class="app-summary-card__title">List datasets</h2>
+          
+        </header>
+        
+        
+        <div class="app-summary-card__body">
+
+            <p class="govuk-body">List Datasets</p>
+    
+            
+      <table class="govuk-table">
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Request type</th>
+          <th scope="col" class="govuk-table__header">URL</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+      <strong class="govuk-tag govuk-tag--green">get</strong>
+    
+    </td>
+               <td class="govuk-table__cell govuk-!-font-size-16">
+                <span class="app-code-block">/dataset.{extension}</span></td>
+
+            </tr>
+          
+        
+      </tbody>
+    </table>
+
+    
+    <div class="dl-data-table__wrapper" data-module="scrollable-table">
+        <div class="dl-data-table-left-shadow with-transition"></div>
+        <div class="wide-table">
+            
+              
+      <table class="govuk-table">
+      
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-hint">Parameters</caption>
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Name</th> 
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Type</th>     
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half govuk-!-font-size-16">Description</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+          
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">extension</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Must be one of: json or html</td>
+            </tr>
+          
+        
+      </tbody>
+    </table>
+
+     
+        </div>
+        <div class="dl-data-table-right-shadow visible with-transition"></div>
+    </div>
+  
+        </div>
+        
+      </section>
+    
+
+          
+      <section class="app-summary-card govuk-!-margin-bottom-6">
+        
+        <header class="app-summary-card__header">
+          
+          <h2 class="app-summary-card__title">Get dataset</h2>
+          
+        </header>
+        
+        
+        <div class="app-summary-card__body">
+          
+            
+    
+            <p class="govuk-body">Get Dataset</p>
+    
+            
+      <table class="govuk-table">
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Request type</th>
+        
+          <th scope="col" class="govuk-table__header">URL</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+          
+            <tr class="govuk-table__row">
+               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">get</strong>
+    
+    </td>
+ 
+              <td class="govuk-table__cell govuk-!-font-size-16"><span class="app-code-block">/dataset/{dataset}.{extension}</span></td>
+
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+
+    <div class="dl-data-table__wrapper" data-module="scrollable-table">
+        <div class="dl-data-table-left-shadow with-transition"></div>
+        <div class="wide-table">
+            
+              
+      <table class="govuk-table">
+      
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-hint">Parameters</caption>
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Name</th>
+          <th scope="col" class="govuk-table__header govuk-!-font-size-16">Type</th>  
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half govuk-!-font-size-16">Description</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+        
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">dataset</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+        </td>
+
+              <td class="govuk-table__cell govuk-!-font-size-14">string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Specify which dataset</td>
+            </tr>
+          
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" >
+          <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">extension</div>
+          <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Required</div>
+        </td>
+              
+              <td class="govuk-table__cell govuk-!-font-size-14" >string</td>
+              <td class="govuk-table__cell govuk-!-font-size-16">Must be one of: json or html</td>
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+            
+        </div>
+        <div class="dl-data-table-right-shadow visible with-transition"></div>
+    </div>
+    
+
+        </div>
+        
+      </section>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+    
+        <h2 class="govuk-heading-l" id="openapi">Planning Data OpenAPI</h2>
+    
+        <p class="govuk-body">You can generate a client library from our OpenAPI file using <a href="https://editor.swagger.io/">Swagger Editor</a>.</p>
+        <p class="govuk-body">This may be an easier way for you to integrate your service with the planning data platform than writing a client library from scratch.</p>
+    
+        
+      <section class="app-summary-card">
+        
+        
+        <div class="app-summary-card__body">
+
+      <table class="govuk-table">
+      
+      
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        
+          <th scope="col" class="govuk-table__header">Request type</th>
+        
+          <th scope="col" class="govuk-table__header">URL</th>
+        
+        </tr>
+      </thead>
+      
+      <tbody class="govuk-table__body">
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">GET</strong></td>
+
+              <td class="govuk-table__cell"
+              ><span class="app-code-block"><a href="https://www.planning.data.gov.uk/openapi.json">https://www.planning.data.gov.uk/openapi.json</a></span></td>
+              
+            
+            </tr>
+          
+        
+      </tbody>
+    </table>
+    
+
+        </div>
+        
+      </section>
+    
+    
+    
+      </div>
+    </div>
+
+  </div>
+
+
+{% endblock %}
