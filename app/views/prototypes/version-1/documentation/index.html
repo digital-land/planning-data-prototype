@@ -15,12 +15,9 @@
 {% block content %}
 
 
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third" id="content_secondary">
       <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
-      
-        
 
     </div>
     <div class="govuk-grid-column-two-thirds" id="content_primary">
@@ -75,10 +72,8 @@
         
         
         <div class="app-summary-card__body">
-   
             <p class="govuk-body">Search for data on the planning data platform by the parameters listed.</p>
     
-            
       <table class="govuk-table">
       
       
@@ -93,14 +88,12 @@
       
       <tbody class="govuk-table__body">
         
-          
             <tr class="govuk-table__row">
             <td class="govuk-table__cell" ><strong class="govuk-tag govuk-tag--green">GET</strong></td>
  
        <td class="govuk-table__cell govuk-!-font-size-16"><span class="app-code-block">/entity.{extension}</span></td>
 
             </tr>
-          
         
       </tbody>
     </table>
@@ -110,13 +103,13 @@
     <div class="dl-data-table__wrapper" data-module="scrollable-table">
         <div class="dl-data-table-left-shadow with-transition"></div>
         <div class="wide-table">
-            
+  
               
       <table class="govuk-table">
       
       <caption class="govuk-table__caption govuk-table__caption--s govuk-hint">Parameters</caption>
       
-      
+  
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
         
@@ -166,7 +159,6 @@
 
               <td class="govuk-table__cell govuk-!-font-size-14"> array(string) </td>
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by dataset </td>
-              
             
             </tr>
           
@@ -179,15 +171,12 @@
           <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
         </td>
               
-
               <td class="govuk-table__cell govuk-!-font-size-14">array(integer) </td>
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entities managed by organisation</td>
-              
-            
+
             </tr>
           
         
-          
             <tr class="govuk-table__row">
             
 
@@ -199,7 +188,6 @@
               <td class="govuk-table__cell govuk-!-font-size-14">array(integer)</td>
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by entity number</td>
               
-    
             </tr>
 
           
@@ -223,7 +211,6 @@
           <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
         </td>
               
-
               <td class="govuk-table__cell govuk-!-font-size-14"> array(string)</td>
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by prefix</td>
               
@@ -241,7 +228,6 @@
 
             </tr>
           
-
             <tr class="govuk-table__row">
 
               <td class="govuk-table__cell" >
@@ -254,8 +240,7 @@
             <td class="govuk-table__cell govuk-!-font-size-16">Results to include current, or all entries</td>
    
             </tr>
-          
-        
+
           
             <tr class="govuk-table__row">
 
@@ -270,8 +255,7 @@
               
             </tr>
           
-        
-          
+
             <tr class="govuk-table__row">
 
               <td class="govuk-table__cell">
@@ -335,21 +319,17 @@
               
             
             </tr>
-          
-        
+
           
             <tr class="govuk-table__row">
             
-              
-              
+
               <td class="govuk-table__cell" >
           <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_day</div>
           <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
         </td>
-              
-            
-              
-              
+                    
+
         <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
         <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by end date day before or after the given day. Depends on end_date_match
             
@@ -361,14 +341,11 @@
 
             <tr class="govuk-table__row">
             
-              
-              
+
               <td class="govuk-table__cell">
           <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">end_date_match</div>
           <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
         </td>
-              
-            
               
               
               <td class="govuk-table__cell">string</td>
@@ -378,23 +355,18 @@
           
         </td>
               
-            
             </tr>
           
-        
-          
+
             <tr class="govuk-table__row">
-            
-              
+
               
               <td class="govuk-table__cell">
           <div class="app-code-block app-code-block--inline govuk-!-margin-bottom-2">entry_date_year</div>
           <div class="govuk-!-font-size-14 app-u-vertical-align--top govuk-hint">Optional</div>
         </td>
               
-            
-              
-              
+
         <td class="govuk-table__cell govuk-!-font-size-14">integer</td>
         <td class="govuk-table__cell govuk-!-font-size-16">Search for entities by entry date year before or after the given year. Depends on entry_date_match </td>
               
@@ -440,8 +412,7 @@
               
               <td class="govuk-table__cell govuk-!-font-size-14" >string</td>
               <td class="govuk-table__cell govuk-!-font-size-16">Specify for entities how to filter against the entry_date_* values provided, either before, after or match </td>
-              
-            
+
             </tr>
           
         
@@ -454,12 +425,10 @@
         </td>
 
               <td class="govuk-table__cell govuk-!-font-size-14">number</td>
-
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entity with geometries intersected by a point constructed with this longitude.
             Requires latitude to be provided.</td></tr>
           
-        
-          
+
             <tr class="govuk-table__row">
 
               <td class="govuk-table__cell">
@@ -474,8 +443,7 @@
 
             </tr>
           
-        
-          
+ 
             <tr class="govuk-table__row">
 
               <td class="govuk-table__cell">
@@ -488,8 +456,7 @@
               <td class="govuk-table__cell govuk-!-font-size-16">Search for entities with geometries intersecting with one or more geometries provided in WKT format</td>
 
             </tr>
-          
-        
+
           
             <tr class="govuk-table__row">
             
