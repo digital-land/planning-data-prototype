@@ -25,13 +25,11 @@
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
 }
 
-
 @media (min-width: 48.0625em) {
 .govuk-header__navigation--less-margin {
     margin-bottom: 0px;
 }
 }
-
 
 .govuk-header__container {
     position: relative;
@@ -802,5 +800,3 @@ details > summary:first-of-type {
     padding-bottom: 15px;
 }
 }
-
- 

@@ -1,0 +1,178 @@
+{% extends "../layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+{%- block breadcrumbs -%}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../home.html">Planning Data</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="index.html">Datasets</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">Brownfield land
+      </li>
+    </ol>
+  </div> 
+{% endblock breadcrumbs%}
+
+
+{% block content %}
+
+<div class="app-prose">
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Dataset</span>
+    <h1 class="govuk-heading-xl">Brownfield land</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   
+<section class="app-summary-card govuk-!-margin-bottom-0">
+  
+  <header class="app-summary-card__header">
+    
+    <h2 class="app-summary-card__title app-summary-card__title-h2">
+      About this dataset
+    </h2>
+    
+  </header>
+  
+  
+  <div class="app-summary-card__body">
+    
+      
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Total</dt>
+            <dd class="govuk-summary-list__value">
+              <a class="govuk-link" href="#">30,318 <br>
+              <span class="govuk-!-font-size-14">Brownfield land</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Data providers</dt>
+            <dd class="govuk-summary-list__value">347</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Collector last ran on</dt>
+            <dd class="govuk-summary-list__value">2023-08-03</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">New data last found on</dt>
+            <dd class="govuk-summary-list__value">2023-07-26</dd>
+          </div>
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Licence</dt>
+              <dd class="govuk-summary-list__value govuk-summary-list__value--markdown">
+                <p class="govuk-body">Licensed under the <a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v.3.0</a>.</p>
+              </dd>
+            </div>
+          
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Attribution</dt>
+              <dd class="govuk-summary-list__value govuk-summary-list__value--markdown">
+                <p class="govuk-body">© Crown copyright and database right 2023</p>
+              </dd>
+            </div>
+          
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Summary</dt>
+              <dd class="govuk-summary-list__value govuk-summary-list__value--markdown">
+                <p class="govuk-body">Local planning authorities designate sites in their area as being <a class="govuk-link" href="https://www.gov.uk/guidance/brownfield-land-registers">brownfield land</a>, and publish a register of brownfield sites annually following <a class="govuk-link" href="https://www.gov.uk/government/publications/brownfield-land-registers-data-standard/publish-your-brownfield-land-data">GOV.UK guidance</a>.</p>
+<p class="govuk-body">Each site references the following categories:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li><a class="govuk-link" href="#">ownership-status</a></li>
+<li><a class="govuk-link" href="#">planning-permission-status</a></li>
+<li><a class="govuk-link" href="#">planning-permission-type</a></li>
+<li><a class="govuk-link" href="#">site-category</a></li>
+</ul>
+              </dd>
+            </div>
+          
+        </dl>
+  </div>
+  
+</section>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0" id="view-the-data">
+        View the data
+      </h2>
+      <p class="govuk-hint govuk-!-font-size-14 govuk-!-margin-top-3">You can explore this data</p>
+      <nav role="navigation" aria-labelledby="view-the-data">
+        <ul class="govuk-list govuk-!-font-size-16 govuk-!-margin-bottom-7">
+          
+            <li class="govuk-!-margin-bottom-1">
+              <a class="govuk-link" href="#">On a map</a>
+            </li>
+          
+          <li class="govuk-!-margin-bottom-1">
+            <a class="govuk-link" href="#">As a list</a>
+          </li>
+        </ul>
+      </nav>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0" id="download-the-data">
+        Download the data
+      </h2>
+      <p class="govuk-hint govuk-!-font-size-14 govuk-!-margin-top-3">You can take a copy of this data as</p>
+      <nav role="navigation" aria-labelledby="download-the-data">
+        <ul class="govuk-list govuk-!-font-size-16 govuk-!-margin-bottom-7">
+          <li class="govuk-!-margin-bottom-1">
+            <a class="govuk-link" href="https://files.planning.data.gov.uk/dataset/brownfield-land.csv">CSV</a>
+          </li>
+          <li class="govuk-!-margin-bottom-1">
+            <a class="govuk-link" href="https://files.planning.data.gov.uk/dataset/brownfield-land.json">JSON</a>
+          </li>
+          
+          <li>
+            <a class="govuk-link" href="https://files.planning.data.gov.uk/dataset/brownfield-land.geojson">GeoJSON</a>
+          </li>
+          
+        </ul>
+      </nav>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0" id="specification">
+        Dataset definition
+      </h2>
+      <p class="govuk-hint govuk-!-font-size-14 govuk-!-margin-top-3">You can view the definition of this dataset including the list of fields</p>
+      <nav role="navigation" aria-labelledby="specification">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="https://digital-land.github.io/specification/dataset/brownfield-land">Dataset definition for Brownfield land dataset</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-0">Help improve this data</h3>
+    <p class="govuk-body"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTmyAeKH5m0Xy3pXAYNcNApPdx0_Eioj-toHCOMZWiEdU8g/viewform?usp=pp_url&amp;entry.1761423111=Brownfield land" class="govuk-link">Give feedback on this dataset</a>, or email your questions and corrections to <a href="mailto:digitalland@levellingup.gov.uk" class="govuk-link">digitalland@levellingup.gov.uk</a>.</p>
+  </div>
+</div>
+
+
+
+{% endblock %}
