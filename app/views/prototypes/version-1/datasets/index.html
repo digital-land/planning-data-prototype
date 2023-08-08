@@ -1,0 +1,420 @@
+{% extends "../layouts/content-page.html" %}
+
+{% set pageName="Home" %}
+
+{%- block breadcrumbs -%}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../home.html">Planning Data</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">Datasets
+      </li>
+    </ol>
+  </div> 
+{% endblock breadcrumbs%}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+		<h1 class="govuk-heading-xl">Datasets</h1>
+
+		<p class="govuk-body">Planning Data have collected data across a number of datasets. These have been grouped by type:</p>
+
+    	<p class="govuk-body govuk-visually-hidden">Contents</p>
+		<ul class="govuk-list govuk-list--bullet">
+		
+				<li><a class="govuk-link" href="#geography">Geography</a></li>
+			
+				<li><a class="govuk-link" href="#category">Category</a></li>
+			
+				<li><a class="govuk-link" href="#legal-instrument">Legal Instrument</a></li>
+			
+				<li><a class="govuk-link" href="#document">Document</a></li>
+			
+				<li><a class="govuk-link" href="#organisation">Organisation</a></li>
+			
+				<li><a class="govuk-link" href="#policy">Policy</a></li>
+			
+				<li><a class="govuk-link" href="#metric">Metric</a></li>
+
+		</ul>
+
+	</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<div class="govuk-form-group govuk-!-margin-bottom-9">
+  <label class="dl-list-filter__label govuk-label govuk-!-font-weight-bold"> 
+    I'm looking for
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="event-name" name="event-name" type="text" placeholder="For example, Ramsar site">
+</div>
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="geography">Geography</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">33</span>
+        Geography
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">33</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Ancient woodland</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Area of outstanding natural beauty</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Article 4 direction area</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Battlefield</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="brownfield-land.html" class="govuk-link dl-list-filter__item-title">Brownfield land</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Brownfield site</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Building preservation notice</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Central activities zone</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Certificate of immunity</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Civil parish</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Conservation area</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Design code area</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Green belt</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Heritage at risk</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Heritage coast</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Historic parks and gardens</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Listed building</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Listed building outline</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Local authority district</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Local planning authority</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Locally listed building</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">National park</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Protected wreck site</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Ramsar site</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Region</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Scheduled monument</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Site of special scientific interest</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Special area of conservation</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Special protection area</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Tree</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Tree preservation zone</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">World heritage site</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">World heritage site buffer zone</a></li>
+    
+    </ol>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="category">Category</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">17</span>
+        Category
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">17</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Ancient woodland status</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Article 4 direction rule</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Contribution funding status</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Contribution purpose</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Design code category</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Design code status</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Developer agreement type</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Document type</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Green belt core</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Listed building grade</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Local authority type</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Ownership status</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Park and garden grade</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Permitted development right part</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Planning permission status</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Planning permission type</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Site category</a></li>
+    
+    </ol>
+  </div>
+</div>
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="legal-instrument">Legal Instrument</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">2</span>
+        Legal Instrument
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">2</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Article 4 direction</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Tree preservation order</a></li>
+    
+    </ol>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="document">Document</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">2</span>
+        Document
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">2</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Developer agreement</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Infrastructure funding statement</a></li>
+    
+    </ol>
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="organisation">Organisation</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">9</span>
+        Organisation
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">9</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Development corporation</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Government organisation</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Local authority</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">National park authority</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Nonprofit organisation</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Passenger transport executive</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Public authority</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Regional park authority</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Waste disposal authority</a></li>
+    
+    </ol>
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="policy">Policy</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">2</span>
+        Policy
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">2</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Design code</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Permitted development right</a></li>
+    
+    </ol>
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row dl-list-filter__count govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-one-third">
+  
+    <h2 class="govuk-heading-m list-filter__count__name" id="metric">Metric</h2>
+    <div class="dl-list-filter__count__wrapper">
+      <p class="govuk-visually-hidden">There are
+        <span class="js-accessible-list-filter__count">2</span>
+        Metric
+      </p>
+      <span class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-80 js-list-filter__count" aria-hidden="true">2</span>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <ol class="dl-list-filter__list" data-filter="list">
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Developer agreement contribution</a></li>
+    
+      <li class="dl-list-filter__item" data-filter="item">
+        <a href="#" class="govuk-link dl-list-filter__item-title">Developer agreement transaction</a></li>
+    
+    </ol>
+  </div>
+
+</div>
+
+
+
+
+
+{% endblock %}
