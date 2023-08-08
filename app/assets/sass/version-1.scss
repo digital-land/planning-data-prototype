@@ -479,6 +479,10 @@ svg:not(:root) {
     flex-direction: column-reverse;
 }
 
+.app-card__header__primary {
+    padding: 15px !important;
+}
+
 .app-card__header__secondary {
     display: flex;
     padding-right: 15px !important; 
@@ -549,7 +553,7 @@ svg:not(:root) {
 }
 
 .app-card__header + .app-card__body {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 
 .app-card__header__primary {
@@ -690,6 +694,13 @@ svg:not(:root) {
 }
 }
 
+.govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
+    margin: 25px !important;
+}
+
+.app-results-list__item {
+    margin-bottom: 20px;
+}
 
 // side search filters//
 
@@ -870,6 +881,8 @@ details > summary:first-of-type {
     margin-bottom: 40px !important;
 }
 }
+
+
 // STICKY FOOTER //
 
 @supports (position: sticky) {
