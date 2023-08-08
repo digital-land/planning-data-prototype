@@ -569,13 +569,24 @@ svg:not(:root) {
 .app-pagination {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 1.25;
 }
 
+@media (min-width: 40.0625em) {
+.app-pagination {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+}
+
+@media (min-width: 40.0625em) {
+.app-pagination {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.31579;
+}
+}
 
 .app-pagination__link {
     display: block;
@@ -583,9 +594,11 @@ svg:not(:root) {
     text-decoration: none !important;
 }
 
-
 .app-pagination__link-title {
     font-weight: bold;
+    display: block;
+    border-top: none;
+    padding-top: 15px;
 }
 
 .app-pagination__link-text {
@@ -597,8 +610,9 @@ svg:not(:root) {
 
 @media (min-width: 40.0625em) {
     .app-pagination__link-text {
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 1.25;
+        font-weight: 400;
     }
     }
     
@@ -608,6 +622,15 @@ svg:not(:root) {
      
 }
 
+.app-pagination__button {
+    position: relative;
+}
+
+@media (min-width: 40.0625em) {
+.app-pagination__button {
+    display: inline-block;
+}
+}
 
 .app-pagination__button--next {
     text-align: right;
@@ -624,7 +647,7 @@ svg:not(:root) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-decoration: underline;
-    text-decoration-thickness: max(1px, 0.0625rem);
+    // text-decoration-thickness: max(1px, 0.0625rem);
     text-underline-offset: 0.2em;
 }
 
@@ -649,6 +672,22 @@ svg:not(:root) {
 .app-pagination__button--next:after {
     right: 0;
     transform: rotate(-225deg);
+
+}
+
+@supports (position: sticky) {
+.app-results-footer--sticky:after {
+    content: '';
+    display: block;
+    height: 2em;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0) 100%);
+    border-bottom: 1px solid #b1b4b6;
+}
 }
 
 
@@ -843,6 +882,33 @@ details > summary:first-of-type {
     padding-bottom: 15px;
 }
 }
+
+.app-results-actions__row {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    align-items: flex-start;
+    flex: 0 0 100%;
+}
+
+.app-results-actions__row-content {
+    flex: 1;
+}
+
+.app-list--files {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    width: 100%;
+}
+
+.app-list--files .app-list__item {
+    margin: 0;
+    padding: 0;
+}
+
 
 
 // Filter list 
