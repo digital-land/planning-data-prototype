@@ -481,18 +481,15 @@ svg:not(:root) {
 
 .app-card__header__secondary {
     display: flex;
+    padding-right: 15px !important; 
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     background: #f3f2f1;
-    padding-right: 15px !important; 
+   
 }
 
-@media (min-width: 40.0625em) {
-    .app-card__header__secondary {
-        padding-right: 15px !important; 
-    }
-    }
+ 
 
 
 
@@ -501,6 +498,7 @@ svg:not(:root) {
     font-size: 19px;
     font-size: 1.1875rem;
     line-height: 1.31579;
+    margin-left: 25px;
 }}
 
 .app-card--result {
@@ -564,45 +562,9 @@ svg:not(:root) {
     clear: both;
 }
 
-.app-pagination__button--next .app-pagination__link {
-    padding-right: 23px;
-}
+
 
 // pagination //
-
-.app-pagination__link-title {
-    font-weight: bold;
-}
-
-.app-pagination__link {
-    display: block;
-    padding: 5px;
-    text-decoration: none !important;
-}
-
-.app-pagination__button--next {
-    text-align: right;
-}
-
-@media (min-width: 40.0625em) {
-.app-pagination__link-text {
-    font-size: 16px;
-    line-height: 1.25;
-}
-}
-
-.app-pagination__link-text {
-    display: block;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.app-pagination__link-label {
-    display: inline-block;
-    text-decoration: none; 
-     
-}
 
 .app-pagination {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
@@ -613,6 +575,76 @@ svg:not(:root) {
     font-size: 1rem;
     line-height: 1.25;
 }
+
+
+.app-pagination__link {
+    display: block;
+    padding: 5px;
+    text-decoration: none !important;
+}
+
+
+.app-pagination__link-title {
+    font-weight: bold;
+}
+
+.app-pagination__link-text {
+    display: block;
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 40.0625em) {
+    .app-pagination__link-text {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+    }
+    
+.app-pagination__link-label {
+    display: inline-block;
+    text-decoration: none; 
+     
+}
+
+
+.app-pagination__button--next {
+    text-align: right;
+}
+
+
+.app-pagination__button--next .app-pagination__link {
+    padding-right: 23px;
+}
+
+
+.govuk-link, .app-pagination__link, .app-prose a:not([class]) {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, 0.0625rem);
+    text-underline-offset: 0.2em;
+}
+
+.app-pagination__button--next:after, .app-pagination__button--previous:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: calc(50% - 7px);
+    height: 14px;
+    width: 14px;
+    border-style: solid;
+    color: #0b0c0c;
+    background: transparent;
+    transform: rotate(-45deg);
+    border-left-width: 3px;
+    border-top-width: 3px;
+    border-right-width: 0;
+    border-bottom-width: 0;
+}
+
 
 .app-pagination__button--next:after {
     right: 0;
