@@ -28,6 +28,7 @@
 .govuk-heading-xl, .govuk-heading-l, .govuk-heading-m, .govuk-heading-s {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
 }
+
 a, .govuk-link {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
 }
@@ -68,11 +69,6 @@ p, .govuk-body, .govuk-body-m {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;   
 }
 
-.dl-list-filter__label {
-    display: inline;
-    padding-right: 5px;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;   
-}
 
 .govuk-input {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
@@ -80,4 +76,24 @@ p, .govuk-body, .govuk-body-m {
 
 .govuk-caption-xl {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+.govuk-label {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+.govuk-hint {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+.govuk-date-input {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+.govuk-button {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+}
+
+.govuk-button-group .govuk-link {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", 
 }
