@@ -1,0 +1,800 @@
+{% extends "../layouts/map.html" %}
+
+{% set pageName="Home" %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0c0c"> 
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg?v=12712276a7deb5dd356123e09b28a2e531b590be">
+  <link rel="shortcut icon" href="/static/images/favicon.ico?v=42cb3cc3ba49b5aade97e342e13d36aa313dd84b" type="image/x-icon">
+  <link rel="mask-icon" href="/static/images/safari-pinned-tab.svg?v=329c84095f431936eab2c6de5c965cd87f9a49bb" color="#062058">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/dl-apple-touch-icon-152.png?v=331d369a5882bf7fe24e20214bf57fb7ea6fc884">
+  <link rel="apple-touch-icon" sizes="167x167" href="/static/images/dl-apple-touch-icon-167.png?v=43dc5a8fbefa14c3c4d89b447bf97100d4fc4f10">
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/images/dl-apple-touch-icon-152.png?v=331d369a5882bf7fe24e20214bf57fb7ea6fc884">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png?v=c50357d469df9adaf7365b62044a281a4a7c0cde">
+  <link rel="manifest" href="/static/images/site.webmanifest?v=16c3e46e50e3a97c0383f986fe0f8838528c9851">
+  <meta name="msapplication-TileColor" content="#062058">
+  <meta name="msapplication-config" content="/static/images/browserconfig.xml?v=4e1fb5fb207c3d6edb34a94714860eb36ae266e4">
+  <meta name="theme-color" content="#062058">
+  
+
+
+    
+	<meta name="digital-land:template" content="dl-info/national-map.html">
+
+<script src="https://unpkg.com/maplibre-gl@1.14.0-rc.1/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl@1.14.0-rc.1/dist/maplibre-gl.css" rel="stylesheet"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise%2Ces6%2Ces5%2Ces2015%2Ces2016%2CURL%2CURLSearchParams%2CObject.entries%2CObject.fromEntries%2CAbortController"></script>
+
+<!-- should make this optional, no need to load if not showing a map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+
+<!-- assets needed for fullscreen maps -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<!-- script needed for recentring map -->
+<script src="/static/javascripts/Leaflet.recentre.js"></script>
+
+<script src="/static/javascripts/digital-land-maps.js"></script>
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">National map of planning data</h1>
+    </div>
+  </div>
+
+  <p id="aria-label-national-map" class="govuk-body-l">National map of the planning data collected and collated by Planning Data.</p>
+
+  <div class="dl-map__wrapper" style="min-height: 700px; background-image: url(background-map.png)">
+
+    <div class="zoom-controls" data-module="zoom-controls">
+      <button class="zoom-controls__btn" data-zoom-control="in">
+        <span class="govuk-visually-hidden">Zoom in</span>
+        <span>+</span>
+      </button>
+      <span class="zoom-controls__count-container" aria-live="polite">
+        <span class="govuk-visually-hidden">The map is at zoom level </span>
+        <span class="zoom-controls__count">6</span>
+      </span>
+      <button class="zoom-controls__btn" data-zoom-control="out">
+        <span class="govuk-visually-hidden">Zoom out</span>
+        <span>-</span>
+      </button>
+    </div>
+
+    
+
+    <div id="mapid" class="dl-map" aria-labelledby="aria-label-national-map"></div>
+    <div class="dl-map__side-panel dl-map__side-panel--full js-hidden" tabindex="-1" role="dialog" aria-hidden="false" open="true" aria-modal="true">
+      <div class="dl-map__side-panel__heading">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Data layers</h3>
+      </div>
+      <div class="dl-map__side-panel__content">
+        <div class="govuk-checkboxes" data-module="filter-checkboxes">
+          <div class="dl-filter-group__auto-filter">
+            <label for="input-71108" class="govuk-label govuk-visually-hidden">
+          Filter Show only
+          </label>
+            <input id="input-71108" class="govuk-input dl-filter-group__auto-filter__input" type="text" aria-describedby="checkbox-filter-71108" aria-controls="checkboxes-71108">
+          </div>
+          <ul class="govuk-list govuk-!-margin-bottom-0" data-module="layer-controls" role="group">
+            <span id="checkbox-filter-71108" class="dl-filter-group__auto-filter__desc govuk-visually-hidden" aria-live="polite" data-single="option found" data-multiple="options found" data-selected="selected">33 options found, 0 selected</span>
+            <span class="app-filter-group__status-update js-hidden govuk-!-padding-bottom-3 dl-secondary-text" aria-live="polite" data-single="dataset" data-multiple="datasets">0 datasets hidden</span>
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="ancient-woodland"
+       data-style-options="#00703c,0.2">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ancient-woodland" name="ancient-woodland" type="checkbox" value="ancient-woodland" >
+          <label class="govuk-label govuk-checkboxes__label" for="ancient-woodland">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #00703c; background: rgba(0,112,60,0.2);"></span>
+              Ancient woodland
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="area-of-outstanding-natural-beauty"
+       data-style-options="#d53880,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="area-of-outstanding-natural-beauty" name="area-of-outstanding-natural-beauty" type="checkbox" value="area-of-outstanding-natural-beauty" >
+          <label class="govuk-label govuk-checkboxes__label" for="area-of-outstanding-natural-beauty">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #d53880; background: rgba(213,56,128,0.5);"></span>
+              Area of outstanding natural beauty
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="article-4-direction-area"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="article-4-direction-area" name="article-4-direction-area" type="checkbox" value="article-4-direction-area" >
+          <label class="govuk-label govuk-checkboxes__label" for="article-4-direction-area">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Article 4 direction area
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="battlefield"
+       data-style-options="#4d2942,0.2">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="battlefield" name="battlefield" type="checkbox" value="battlefield" >
+          <label class="govuk-label govuk-checkboxes__label" for="battlefield">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #4d2942; background: rgba(77,41,66,0.2);"></span>
+              Battlefield
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="brownfield-land"
+      data-layer-data-type=point data-style-options="#745729,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="brownfield-land" name="brownfield-land" type="checkbox" value="brownfield-land" >
+          <label class="govuk-label govuk-checkboxes__label" for="brownfield-land">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol dl-label__key__symbol--circle"
+          style="border-color: #745729; background: rgba(116,87,41,0.5);"></span>
+              Brownfield land
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="brownfield-site"
+       data-style-options="#745729,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="brownfield-site" name="brownfield-site" type="checkbox" value="brownfield-site" >
+          <label class="govuk-label govuk-checkboxes__label" for="brownfield-site">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #745729; background: rgba(116,87,41,0.5);"></span>
+              Brownfield site
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="building-preservation-notice"
+       data-style-options="#f944c7,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="building-preservation-notice" name="building-preservation-notice" type="checkbox" value="building-preservation-notice" >
+          <label class="govuk-label govuk-checkboxes__label" for="building-preservation-notice">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #f944c7; background: rgba(249,68,199,0.5);"></span>
+              Building preservation notice
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="central-activities-zone"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="central-activities-zone" name="central-activities-zone" type="checkbox" value="central-activities-zone" >
+          <label class="govuk-label govuk-checkboxes__label" for="central-activities-zone">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Central activities zone
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="certificate-of-immunity"
+       data-style-options="#D8760D,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="certificate-of-immunity" name="certificate-of-immunity" type="checkbox" value="certificate-of-immunity" >
+          <label class="govuk-label govuk-checkboxes__label" for="certificate-of-immunity">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #D8760D; background: rgba(216,118,13,0.5);"></span>
+              Certificate of immunity
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="conservation-area"
+       data-style-options="#78AA00,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="conservation-area" name="conservation-area" type="checkbox" value="conservation-area" >
+          <label class="govuk-label govuk-checkboxes__label" for="conservation-area">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #78AA00; background: rgba(120,170,0,0.5);"></span>
+              Conservation area
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="design-code-area"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="design-code-area" name="design-code-area" type="checkbox" value="design-code-area" >
+          <label class="govuk-label govuk-checkboxes__label" for="design-code-area">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Design code area
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="green-belt"
+       data-style-options="#85994b,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="green-belt" name="green-belt" type="checkbox" value="green-belt" >
+          <label class="govuk-label govuk-checkboxes__label" for="green-belt">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #85994b; background: rgba(133,153,75,0.5);"></span>
+              Green belt
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="heritage-at-risk"
+       data-style-options="#8D73AF,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="heritage-at-risk" name="heritage-at-risk" type="checkbox" value="heritage-at-risk" >
+          <label class="govuk-label govuk-checkboxes__label" for="heritage-at-risk">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #8D73AF; background: rgba(141,115,175,0.5);"></span>
+              Heritage at risk
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="heritage-coast"
+       data-style-options="#912b88,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="heritage-coast" name="heritage-coast" type="checkbox" value="heritage-coast" >
+          <label class="govuk-label govuk-checkboxes__label" for="heritage-coast">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #912b88; background: rgba(145,43,136,0.5);"></span>
+              Heritage coast
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="listed-building"
+      data-layer-data-type=point data-style-options="#F9C744,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="listed-building" name="listed-building" type="checkbox" value="listed-building" >
+          <label class="govuk-label govuk-checkboxes__label" for="listed-building">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol dl-label__key__symbol--circle"
+          style="border-color: #F9C744; background: rgba(249,199,68,0.5);"></span>
+              Listed building
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="listed-building-outline"
+       data-style-options="#F9C744,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="listed-building-outline" name="listed-building-outline" type="checkbox" value="listed-building-outline" >
+          <label class="govuk-label govuk-checkboxes__label" for="listed-building-outline">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #F9C744; background: rgba(249,199,68,0.5);"></span>
+              Listed building outline
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="local-authority-district"
+       data-style-options="#0b0c0c,0.1">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="local-authority-district" name="local-authority-district" type="checkbox" value="local-authority-district" >
+          <label class="govuk-label govuk-checkboxes__label" for="local-authority-district">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #0b0c0c; background: rgba(11,12,12,0.1);"></span>
+              Local authority district
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="locally-listed-building"
+       data-style-options="#F9C744,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="locally-listed-building" name="locally-listed-building" type="checkbox" value="locally-listed-building" >
+          <label class="govuk-label govuk-checkboxes__label" for="locally-listed-building">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #F9C744; background: rgba(249,199,68,0.5);"></span>
+              Locally listed building
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="local-planning-authority"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="local-planning-authority" name="local-planning-authority" type="checkbox" value="local-planning-authority" >
+          <label class="govuk-label govuk-checkboxes__label" for="local-planning-authority">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Local planning authority
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="national-park"
+       data-style-options="#3DA52C,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="national-park" name="national-park" type="checkbox" value="national-park" >
+          <label class="govuk-label govuk-checkboxes__label" for="national-park">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #3DA52C; background: rgba(61,165,44,0.5);"></span>
+              National park
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="parish"
+       data-style-options="#5694ca,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="parish" name="parish" type="checkbox" value="parish" >
+          <label class="govuk-label govuk-checkboxes__label" for="parish">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #5694ca; background: rgba(86,148,202,0.5);"></span>
+              Civil parish
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="park-and-garden"
+       data-style-options="#0EB951,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="park-and-garden" name="park-and-garden" type="checkbox" value="park-and-garden" >
+          <label class="govuk-label govuk-checkboxes__label" for="park-and-garden">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #0EB951; background: rgba(14,185,81,0.5);"></span>
+              Historic parks and gardens
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="protected-wreck-site"
+       data-style-options="#0b0c0c,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="protected-wreck-site" name="protected-wreck-site" type="checkbox" value="protected-wreck-site" >
+          <label class="govuk-label govuk-checkboxes__label" for="protected-wreck-site">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #0b0c0c; background: rgba(11,12,12,0.5);"></span>
+              Protected wreck site
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="ramsar"
+       data-style-options="#7fcdff,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="ramsar" name="ramsar" type="checkbox" value="ramsar" >
+          <label class="govuk-label govuk-checkboxes__label" for="ramsar">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #7fcdff; background: rgba(127,205,255,0.5);"></span>
+              Ramsar site
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="region"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="region" name="region" type="checkbox" value="region" >
+          <label class="govuk-label govuk-checkboxes__label" for="region">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Region
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="scheduled-monument"
+       data-style-options="#0F9CDA,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="scheduled-monument" name="scheduled-monument" type="checkbox" value="scheduled-monument" >
+          <label class="govuk-label govuk-checkboxes__label" for="scheduled-monument">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #0F9CDA; background: rgba(15,156,218,0.5);"></span>
+              Scheduled monument
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="site-of-special-scientific-interest"
+       data-style-options="#308fac,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="site-of-special-scientific-interest" name="site-of-special-scientific-interest" type="checkbox" value="site-of-special-scientific-interest" >
+          <label class="govuk-label govuk-checkboxes__label" for="site-of-special-scientific-interest">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #308fac; background: rgba(48,143,172,0.5);"></span>
+              Site of special scientific interest
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="special-area-of-conservation"
+       data-style-options="#7A8705,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="special-area-of-conservation" name="special-area-of-conservation" type="checkbox" value="special-area-of-conservation" >
+          <label class="govuk-label govuk-checkboxes__label" for="special-area-of-conservation">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #7A8705; background: rgba(122,135,5,0.5);"></span>
+              Special area of conservation
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="special-protection-area"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="special-protection-area" name="special-protection-area" type="checkbox" value="special-protection-area" >
+          <label class="govuk-label govuk-checkboxes__label" for="special-protection-area">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Special protection area
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="tree"
+      data-layer-data-type=point data-style-options="#3B453D,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="tree" name="tree" type="checkbox" value="tree" >
+          <label class="govuk-label govuk-checkboxes__label" for="tree">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol dl-label__key__symbol--circle"
+          style="border-color: #3B453D; background: rgba(59,69,61,0.5);"></span>
+              Tree
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="tree-preservation-zone"
+       data-style-options="">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="tree-preservation-zone" name="tree-preservation-zone" type="checkbox" value="tree-preservation-zone" >
+          <label class="govuk-label govuk-checkboxes__label" for="tree-preservation-zone">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #003078; background: rgba(0,48,120,0.5);"></span>
+              Tree preservation zone
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="world-heritage-site"
+       data-style-options="#EB1EE5,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="world-heritage-site" name="world-heritage-site" type="checkbox" value="world-heritage-site" >
+          <label class="govuk-label govuk-checkboxes__label" for="world-heritage-site">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #EB1EE5; background: rgba(235,30,229,0.5);"></span>
+              World heritage site
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+              
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="world-heritage-site-buffer-zone"
+       data-style-options="#EB1EE5,">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="world-heritage-site-buffer-zone" name="world-heritage-site-buffer-zone" type="checkbox" value="world-heritage-site-buffer-zone" >
+          <label class="govuk-label govuk-checkboxes__label" for="world-heritage-site-buffer-zone">
+            <span class="dl-label__key">
+              <span class="dl-label__key__symbol"
+          style="border-color: #EB1EE5; background: rgba(235,30,229,0.5);"></span>
+              World heritage site buffer zone
+            </span>
+          </label>
+        </div>
+      </li>
+    
+            
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="app-c-sources-panel govuk-!-margin-bottom-4">
+    <p>Find, understand and download the <a href="/dataset" class="govuk-link">datasets used to create this map</a>.</p>
+</div>
+
+<p class="govuk-body govuk-!-margin-bottom-0 govuk-!-width-two-thirds">This prototype map is automatically created using data from planning.data.gov.uk. Find out more <a href="/about">about the Planning Data Platform</a></p>
+
+
+        </main>
+      </div>
+    
+
+    
+	
+	
+
+  <footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container dl-container--full-width">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/service-status">
+                    Service status
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/about/roadmap">
+                    Roadmap
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/guidance">
+                    Guidance for publishers
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              Built by the <a href="https://www.gov.uk/government/organisations/department-for-levelling-up-housing-and-communities" class="govuk-footer__link">Department for Levelling Up, Housing and Communities</a>
+            </div>
+          
+        
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+          >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+    
+
+  
+
+  
+    <script src="/static/javascripts/cookies.js?v=c849318cfca2385a0138e149a02ee7993a379b04"></script>
+    <script>
+        cookiePrefs.get();
+    </script>
+
+    
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <!-- Google tag (gtag.js) -->
+        <script>
+            window.gaMeasurementId = 'G-H6Y6SVFXMH';
+            var scriptElement = document.createElement("script");
+            scriptElement.src = `https://www.googletagmanager.com/gtag/js?id=${window.gaMeasurementId}`;
+            document.head.appendChild(scriptElement);
+        </script>
+    
+
+    
+    
+
+    
+        <script src="/static/javascripts/govuk/govuk-frontend.js"></script>
+        <script>
+        // initiate all GOVUK components
+        window.GOVUKFrontend.initAll();
+        </script>
+    
+
+    
+    <script src="/static/javascripts/digital-land-frontend.js"></script>
+    <script>
+      window.DLFrontend.initAll();
+    </script>
+    
+
+    
+  
+
+  
+
+<script src="/static/javascripts/dl-national-map-controller.js"></script>
+<script src="/static/javascripts/filter-checkbox-extension.js"></script>
+<script>
+  // grab html elements
+  const $controlsList = document.querySelector('[data-module="layer-controls"]')
+  const $zoomMod = document.querySelector('[data-module="zoom-controls"]')
+  // init national map
+  const mapController = new MapController($controlsList, $zoomMod).init({
+    baseTileStyleFilePath: "/static/javascripts/base-tile.json",
+    vectorSource: "https://datasette-tiles.planning.data.gov.uk/-/tiles/dataset_tiles/{z}/{x}/{y}.vector.pbf",
+    datasetVectorUrl: "https://datasette-tiles.planning.data.gov.uk/-/tiles/",
+    datasets: [{"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "ancient-woodland", "dataset": "ancient-woodland", "description": "An area that\u2019s been wooded continuously since at least 1600 AD", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Ancient woodland", "paint_options": {"colour": "#00703c", "opacity": 0.2}, "plural": "Ancient woodlands", "prefix": null, "start_date": null, "text": "An area designated as ancient woodland by Natural England.\n\nNatural England and Forestry Commission [Guidance](https://www.gov.uk/guidance/ancient-woodland-and-veteran-trees-protection-surveys-licences)  is used in planning decisions.", "themes": ["environment"], "typology": "geography", "wikidata": "Q3078732", "wikipedia": "Ancient_woodland"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "area-of-outstanding-natural-beauty", "dataset": "area-of-outstanding-natural-beauty", "description": "Land protected by law to conserve and enhance its natural beauty", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Area of outstanding natural beauty", "paint_options": {"colour": "#d53880"}, "plural": "Areas of outstanding natural beauty", "prefix": null, "start_date": null, "text": "An area of outstanding natural beauty (AONB) as designated by [Natural England](https://www.gov.uk/government/organisations/natural-england).\n\nNatural England provides [guidance](https://www.gov.uk/guidance/protected-sites-and-areas-how-to-review-planning-applications) to help local authorities decide on planning applications in protected sites and areas.", "themes": ["environment"], "typology": "geography", "wikidata": "Q174945", "wikipedia": "Area_of_Outstanding_Natural_Beauty"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "article-4-direction", "dataset": "article-4-direction-area", "description": "Orders made by the local planning authority to remove all or some of the permitted development rights on a site in order to protect it", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Article 4 direction area", "paint_options": null, "plural": "Article 4 direction areas", "prefix": null, "start_date": null, "text": "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).", "themes": ["heritage"], "typology": "geography", "wikidata": null, "wikipedia": null}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "battlefield", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Battlefield", "paint_options": {"colour": "#4d2942", "opacity": 0.2}, "plural": "Battlefields", "prefix": null, "start_date": null, "text": "Battlefields as designated by [Historic England](https://historicengland.org.uk) in their [Register of Historic Battlefields](https://historicengland.org.uk/listing/what-is-designation/registered-battlefields/).", "themes": ["heritage"], "typology": "geography", "wikidata": "Q4895508", "wikipedia": "Battlefield"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "brownfield-land", "dataset": "brownfield-land", "description": "Land that has been previously been developed", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Brownfield land", "paint_options": {"colour": "#745729", "type": "point"}, "plural": "Brownfield land", "prefix": null, "start_date": null, "text": "Local planning authorities designate sites in their area as being [brownfield land](https://www.gov.uk/guidance/brownfield-land-registers), and publish a register of brownfield sites annually following [GOV.UK guidance](https://www.gov.uk/government/publications/brownfield-land-registers-data-standard/publish-your-brownfield-land-data).\n\nEach site references the following categories:\n\n* [ownership-status](/dataset/ownership-status)\n* [planning-permission-status](/dataset/planning-permission-status)\n* [planning-permission-type](/dataset/planning-permission-type)\n* [site-category](/dataset/site-category)", "themes": ["development"], "typology": "geography", "wikidata": "Q896586", "wikipedia": "Brownfield_land"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "brownfield-site", "dataset": "brownfield-site", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Brownfield site", "paint_options": {"colour": "#745729"}, "plural": "Brownfield sites", "prefix": null, "start_date": null, "text": "This is an experimental dataset of the boundaries of brownfield sites found on [data.gov.uk](https://www.data.gov.uk/search?q=brownfield)\nand local planning authority web sites.\nWe expect to combine this dataset with the [brownfield land](/dataset/brownfield-land) dataset in the near future.", "themes": ["development"], "typology": "geography", "wikidata": "Q896586", "wikipedia": "Brownfield_land"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "building-preservation-notice", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Building preservation notice", "paint_options": {"colour": "#f944c7"}, "plural": "Building preservation notices", "prefix": null, "start_date": null, "text": "Local planning authorities can serve a Building Preservation Notice (BPN) on a building owner if they consider a building\nis in danger of demolition or alteration in a way that might affect its special character.\nBPN\u0027s take effect immediately, protecting the building for a limited time period, as if it were listed.\n\nThe local planning authority must make an application to [Historic England](https://historicengland.org.uk/)\nto list the building at the same time that the BPN is served.\n\nWe expect to develop a data specification to help LPAs to publish their building preservation notices to supplement this data from Historic England.", "themes": ["development"], "typology": "geography", "wikidata": "Q98785867", "wikipedia": "Listed_building#England_and_Wales"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "central-activities-zone", "dataset": "central-activities-zone", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Central activities zone", "paint_options": null, "plural": "Central activities zones", "prefix": null, "start_date": null, "text": "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.", "themes": ["development"], "typology": "geography", "wikidata": null, "wikipedia": null}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "certificate-of-immunity", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Certificate of immunity", "paint_options": {"colour": "#D8760D"}, "plural": "Certificates of immunity", "prefix": null, "start_date": null, "text": null, "themes": ["heritage"], "typology": "geography", "wikidata": "Q5065092", "wikipedia": "Certificate_of_Immunity_from_Listing"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "conservation-area", "dataset": "conservation-area", "description": "Special architectural or historic interest, the character or appearance of which it is desirable to preserve or enhance", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Conservation area", "paint_options": {"colour": "#78AA00"}, "plural": "Conservation areas", "prefix": null, "start_date": null, "text": "Local planning authorities are responsible for designating conservation areas, though [Historic England](https://historicengland.org.uk/) and the Secretary of State also have powers to create them.\n\nThis dataset also contains the boundaries of conservation areas from Historic England, as well as other data found on [data.gov.uk](https://www.data.gov.uk/search?q=conservation+area) and currently contains a number of duplicate areas we are working to remove.\n\nWe are also [working with a group of local planning authorities](/about/) to help them publish their conservation areas, and to develop a [data specification for conservation areas](https://www.digital-land.info/guidance/specifications/conservation-area).\n\nHistoric England provide [guidance](https://historicengland.org.uk/advice/your-home/owning-historic-property/conservation-area/) to help householders understand the implications of living in a conservation area for planning applications.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q5162904", "wikipedia": "Conservation_area_(United_Kingdom)"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "design-code", "dataset": "design-code-area", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Design code area", "paint_options": null, "plural": "Design code areas", "prefix": null, "start_date": null, "text": "Geographical areas covered by a [design code](/dataset/design-code).", "themes": ["development"], "typology": "geography", "wikidata": null, "wikipedia": null}, {"attribution": "os-open-data", "attribution_text": "Your use of OS OpenData is subject to the terms at http://os.uk/opendata/licence\nContains Ordnance Survey data \u00a9 Crown copyright and database right 2023", "collection": "green-belt", "dataset": "green-belt", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Green belt", "paint_options": {"colour": "#85994b"}, "plural": "Green belt", "prefix": null, "start_date": null, "text": "Boundaries for land designated by a local planning authority as being [green belt](https://www.gov.uk/guidance/green-belt),\ngrouped using the [greenbelt core](/dataset/greenbelt-core) category.\nThis data is compiled by the Department for Levelling Up, Housing and Communities for the purposes of gathering [green belt statistics](https://www.gov.uk/government/collections/green-belt-statistics).", "themes": ["environment"], "typology": "geography", "wikidata": "Q2734873", "wikipedia": "Green_belt_(United_Kingdom)"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "heritage-at-risk", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Heritage at risk", "paint_options": {"colour": "#8D73AF"}, "plural": "Heritage at risk", "prefix": null, "start_date": null, "text": "The [Heritage at risk register](https://historicengland.org.uk/advice/heritage-at-risk/search-register/) is updated annually by [Historic England](https://historicengland.org.uk/).", "themes": ["heritage"], "typology": "geography", "wikidata": "Q16983914", "wikipedia": "Heritage_at_Risk_Register"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "heritage-coast", "dataset": "heritage-coast", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Heritage coast", "paint_options": {"colour": "#912b88"}, "plural": "Heritage coast", "prefix": null, "start_date": null, "text": "A [heritage coast](https://www.gov.uk/government/publications/heritage-coasts-protecting-undeveloped-coast/heritage-coasts-definition-purpose-and-natural-englands-role) as defined by agreement between the relevant maritime local authorities and [Natural England](https://www.gov.uk/government/organisations/natural-england).", "themes": ["environment", "heritage"], "typology": "geography", "wikidata": "Q13125592", "wikipedia": "Heritage_coast"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "listed-building", "dataset": "listed-building", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Listed building", "paint_options": {"colour": "#F9C744", "type": "point"}, "plural": "Listed buildings", "prefix": null, "start_date": null, "text": "[Listed buildings](https://historicengland.org.uk/listing/what-is-designation/listed-buildings) as designated by [Historic England](https://historicengland.org.uk/).\nEach building has a [listed building grade](/dataset/listed-building-grade).", "themes": ["heritage"], "typology": "geography", "wikidata": "Q570600", "wikipedia": "Listed_building"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "listed-building", "dataset": "listed-building-outline", "description": "boundary of a listed building", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Listed building outline", "paint_options": {"colour": "#F9C744"}, "plural": "Listed building outlines", "prefix": null, "start_date": null, "text": "The geospatial boundary for [listed buildings](https://historicengland.org.uk/listing/what-is-designation/listed-buildings) as designated by [Historic England](https://historicengland.org.uk/) as collected from local planning authorities.\n\nWe are [working with a group of local planning authorities](/about/) to help them publish their data to inform planning decisions, and to develop a [data specification for listed building outlines](https://www.digital-land.info/guidance/specifications/listed-building).\n\nWe expect to eventually merge this dataset with the [listed building](/dataset/listed-building) dataset.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q570600", "wikipedia": "Listed_building"}, {"attribution": "ons-boundary", "attribution_text": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0\nContains OS data \u00a9 Crown copyright and database right 2023", "collection": "local-authority-district", "dataset": "local-authority-district", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Local authority district", "paint_options": {"colour": "#0b0c0c", "opacity": "0.1", "weight": 5}, "plural": "Local authority districts", "prefix": "statistical-geography", "start_date": null, "text": "The administrative boundaries of local authorities in England as provided by the ONS for the purposes of producing statistics.", "themes": ["administrative"], "typology": "geography", "wikidata": "Q349084", "wikipedia": "Districts_of_England"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "listed-building", "dataset": "locally-listed-building", "description": "locally listed heritage assets, including buildings", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Locally listed building", "paint_options": {"colour": "#F9C744"}, "plural": "Locally listed buildings", "prefix": null, "start_date": null, "text": "A building or site in a local planning authority\u2019s area that make a positive contribution to its local character and sense of place because of their heritage value. Although such heritage assets may not be nationally designated or even located within the boundaries of a conservation area, they may be offered some level of protection by the local planning authority identifying them on a formally adopted list of local heritage assets.\n\nThis is an experimental dataset of locally listed buildings found on [data.gov.uk](https://www.data.gov.uk/search?q=locally+listed+buildings).\nWe are [working with a group of local planning authorities](/about/) to help them publish their locally listed buildings, and to develop a data specification for locally listed buildings.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q570600", "wikipedia": "Listed_building#Locally_listed_buildings"}, {"attribution": "ons-boundary", "attribution_text": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0\nContains OS data \u00a9 Crown copyright and database right 2023", "collection": "local-planning-authority", "dataset": "local-planning-authority", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Local planning authority", "paint_options": null, "plural": "Local planning authorities", "prefix": "statistical-geography", "start_date": null, "text": "The administrative boundaries of local planning authorities in England as provided by the ONS for the purposes of producing statistics.\nA local planning authority may be a [local authority](/dataset/local-authority), [national park authority](/dataset/national-park-authority) or [development corporation](/dataset/development-corporation).", "themes": ["administrative"], "typology": "geography", "wikidata": "Q6664495", "wikipedia": "Local_planning_authority"}, {"attribution": "ons-boundary", "attribution_text": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0\nContains OS data \u00a9 Crown copyright and database right 2023", "collection": "national-park", "dataset": "national-park", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "National park", "paint_options": {"colour": "#3DA52C"}, "plural": "National parks", "prefix": "statistical-geography", "start_date": null, "text": "The administrative boundaries of [national park authorities](/dataset/national-park-authority) in England as provided by the ONS for the purposes of producing statistics.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q60256727", "wikipedia": "National_park"}, {"attribution": "ons-boundary", "attribution_text": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0\nContains OS data \u00a9 Crown copyright and database right 2023", "collection": "parish", "dataset": "parish", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Civil parish", "paint_options": {"colour": "#5694ca"}, "plural": "Civil parishes", "prefix": "statistical-geography", "start_date": null, "text": "The administrative boundaries of [civil parish councils](https://en.wikipedia.org/wiki/Parish_council_(England)) in England.\nThe [ONS](https://www.ons.gov.uk/methodology/geography/ukgeographies/administrativegeography/england#parishes-and-communities) provides this\ndata for the purposes of producing statistics.", "themes": ["administrative"], "typology": "geography", "wikidata": "Q1115575", "wikipedia": "Civil_parish"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "park-and-garden", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Historic parks and gardens", "paint_options": {"colour": "#0EB951"}, "plural": "Parks and gardens", "prefix": null, "start_date": null, "text": "Historic parks and gardens as listed by [Historic England](https://historicengland.org.uk/) in the [Register of Parks and Gardens of Special Historic Interest](https://historicengland.org.uk/listing/what-is-designation/registered-parks-and-gardens/).", "themes": ["environment", "heritage"], "typology": "geography", "wikidata": "Q6975250", "wikipedia": "Register_of_Historic_Parks_and_Gardens_of_Special_Historic_Interest_in_England"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "protected-wreck-site", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Protected wreck site", "paint_options": {"colour": "#0b0c0c"}, "plural": "Protected wreck sites", "prefix": null, "start_date": null, "text": "Protected wrecks are records of wreck sites, documented losses and seabed archaeological features.\u00a0 They can be protected by designation under the [Protection of Wrecks Act 1973](http://www.legislation.gov.uk/ukpga/1973/33), the [Ancient Monuments and Archaeological Areas Act 1979](http://www.legislation.gov.uk/ukpga/1979/46/contents) and the [Protection of Military Remains Act 1986](http://www.legislation.gov.uk/ukpga/1986/35/contents).\n\nThe Protection of Wrecks Act 1973 allows the Secretary of State for [Digital, Culture, Media and Sport](https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport) to designate a restricted area around the site of a vessel lying on or in the seabed in UK territorial waters. They do so with advice from [Historic England](https://historicengland.org.uk/).\n\nWhere a protected wreck site is within local authority boundaries then it will be considered a designated heritage asset for the purpose of the NPPF and offered the same level of protection in planning decisions as is afforded to scheduled monuments and highly graded listed buildings.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q6616121", "wikipedia": "List_of_designations_under_the_Protection_of_Wrecks_Act"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "ramsar", "dataset": "ramsar", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Ramsar site", "paint_options": {"colour": "#7fcdff"}, "plural": "Ramsar sites", "prefix": null, "start_date": null, "text": "An internationally protected site listed as a wetland of international importance.\nRamsar sites are designated by [UNESCO](https://en.unesco.org/) and managed by [Natural England](https://www.gov.uk/government/organisations/natural-england).\n\nNatural England provides [guidance ](https://www.gov.uk/guidance/protected-sites-and-areas-how-to-review-planning-applications) to help local authorities decide on planning applications in protected sites and areas.", "themes": ["environment"], "typology": "geography", "wikidata": null, "wikipedia": null}, {"attribution": "ons-boundary", "attribution_text": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0\nContains OS data \u00a9 Crown copyright and database right 2023", "collection": "region", "dataset": "region", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Region", "paint_options": null, "plural": "Regions", "prefix": "statistical-geography", "start_date": null, "text": "The [ONS](https://www.ons.gov.uk/methodology/geography/ukgeographies/administrativegeography/england#regions) provides this\ndata for the purposes of producing statistics.", "themes": ["administrative"], "typology": "geography", "wikidata": "Q48091", "wikipedia": "Regions_of_England"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "scheduled-monument", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Scheduled monument", "paint_options": {"colour": "#0F9CDA"}, "plural": "Scheduled monuments", "prefix": null, "start_date": null, "text": "Historic buildings or sites such as Roman remains, burial mounds, castles, bridges, earthworks, the remains of deserted villages and industrial sites can be designated scheduled monuments by the Secretary of State for [Digital, Culture, Media and Sport](https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport). \n\nThis list of scheduled monuments is kept and maintained by [Historic England](https://historicengland.org.uk/).", "themes": ["heritage"], "typology": "geography", "wikidata": "Q219538", "wikipedia": "Scheduled_monument"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "site-of-special-scientific-interest", "dataset": "site-of-special-scientific-interest", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Site of special scientific interest", "paint_options": {"colour": "#308fac"}, "plural": "Sites of special scientific interest", "prefix": null, "start_date": null, "text": "Sites of special scientific interest (SSSI) are nationally protected sites that have features such as wildlife or geology.\u00a0\n\nSSSIs are designated by [Natural England](https://www.gov.uk/government/organisations/natural-england).\nThere is [guidance](https://www.gov.uk/guidance/protected-areas-sites-of-special-scientific-interest) to help local authorities decide on planning applications in protected SSSIs.", "themes": ["environment"], "typology": "geography", "wikidata": "Q422211", "wikipedia": "Site_of_Special_Scientific_Interest"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "special-area-of-conservation", "dataset": "special-area-of-conservation", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Special area of conservation", "paint_options": {"colour": "#7A8705"}, "plural": "Special areas of conservation", "prefix": null, "start_date": null, "text": "Special areas of conservation (SACs) are area of land which have been designated by\n[DEFRA](https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs),\nwith advice from the [Joint Nature Conservation Committee](https://jncc.gov.uk/),\nto protect specific habitats and species.\n\nDEFRA and [Natural England](https://www.gov.uk/government/organisations/natural-england) publish\n[guidance](https://www.gov.uk/guidance/protected-sites-and-areas-how-to-review-planning-applications)\non how to review planning applications in protected sites and areas.", "themes": ["environment"], "typology": "geography", "wikidata": "Q1191622", "wikipedia": "Special_Area_of_Conservation"}, {"attribution": "natural-england", "attribution_text": "\u00a9 Natural England copyright. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.", "collection": "special-protection-area", "dataset": "special-protection-area", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Special protection area", "paint_options": null, "plural": "Special protection areas", "prefix": null, "start_date": null, "text": "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).", "themes": ["environment"], "typology": "geography", "wikidata": null, "wikipedia": null}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "tree-preservation-order", "dataset": "tree", "description": "An individual tree", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Tree", "paint_options": {"colour": "#3B453D", "type": "point"}, "plural": "Trees", "prefix": null, "start_date": null, "text": "A Tree Preservation Order (TPO) can be placed on single trees, groups of trees and even whole woodlands. Tree Preservation Orders are made by local planning authorities following [guidance](https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas) provided by the [Department for Levelling Up, Housing and Communities](https://www.gov.uk/government/organisations/department-for-levelling-up-housing-and-communities).\n\nEach [tree preservation order](/dataset/tree-preservation-order) may apply to a number of [tree preservation order zones](/dataset/tree-preservation-order-zone), and a number of individual trees.\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for tree preservation orders](https://www.digital-land.info/guidance/specifications/tree-preservation-order).", "themes": ["environment"], "typology": "geography", "wikidata": "Q10884", "wikipedia": "Tree"}, {"attribution": "crown-copyright", "attribution_text": "\u00a9 Crown copyright and database right 2023", "collection": "tree-preservation-order", "dataset": "tree-preservation-zone", "description": "An area covered by a tree preservation order", "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "Tree preservation zone", "paint_options": null, "plural": "Trees preservation zones", "prefix": null, "start_date": null, "text": "A Tree Preservation Order (TPO) can be placed on single trees, groups of trees and even whole woodlands. Tree Preservation Orders are made by local planning authorities following [guidance](https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas) provided by the [Department for Levelling Up, Housing and Communities](https://www.gov.uk/government/organisations/department-for-levelling-up-housing-and-communities).\n\nEach [tree preservation order](/dataset/tree-preservation-order) may apply to a number of tree preservation order zones, and a number of individual [trees](/dataset/tree).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for tree preservation orders](https://www.digital-land.info/guidance/specifications/tree-preservation-order).", "themes": ["environment"], "typology": "geography", "wikidata": "Q10884", "wikipedia": "Tree"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "world-heritage-site", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "World heritage site", "paint_options": {"colour": "#EB1EE5"}, "plural": "World heritage sites", "prefix": null, "start_date": null, "text": "World heritage sites are sites, places, monuments or buildings of \"outstanding universal value\" to all humanity - today and in future generations. They are afforded legal protection by an international convention administered by [UNESCO](https://en.unesco.org/) for having cultural, historical, scientific or other form of significance.\u00a0 All UK world heritage sites have a management plan.\n\nDesignation of a world heritage site by UNESCO brings no additional statutory controls, but protection is afforded through the planning system as well as through the other designations (listed buildings, scheduled monuments etc) that cover elements, if not the whole, of the site. The [NPPF](https://www.gov.uk/government/publications/national-planning-policy-framework--2) defines a world heritage site as a designated heritage asset. Accordingly, great weight should be given to its conservation and substantial harm to a world heritage sites significance (the heritage aspects of its \"outstanding universal value\") or total loss of the site should be wholly exceptional ([para 194](https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment#footnote61)).\u00a0\u00a0\n\nWorld heritage sites are designated by UNESCO who hold the definitive list of world heritage sites.\\\n[Guidance](https://historicengland.org.uk/images-books/publications/protection-management-of-world-heritage-sites-in-england/) on the protection and management of England\u0027s world heritage sites is provided by [Historic England](https://historicengland.org.uk/).", "themes": ["heritage"], "typology": "geography", "wikidata": "Q9259", "wikipedia": "World_Heritage_Site"}, {"attribution": "historic-england", "attribution_text": "\u00a9 Historic England 2023. Contains Ordnance Survey data \u00a9 Crown copyright and database right 2023.\nThe Historic England GIS Data contained in this material was obtained on [date].\nThe most publicly available up to date Historic England GIS Data can be obtained from [HistoricEngland.org.uk](https://historicengland.org.uk).", "collection": "historic-england", "dataset": "world-heritage-site-buffer-zone", "description": null, "end_date": null, "entities": null, "entity_count": null, "entry_date": null, "licence": "ogl3", "licence_text": "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).", "name": "World heritage site buffer zone", "paint_options": {"colour": "#EB1EE5"}, "plural": "World heritage site buffer zones", "prefix": null, "start_date": null, "text": "A [World Heritage Site](/dataset/world-heritage-site) may have a [buffer zone](https://whc.unesco.org/en/series/25/) with implications for planning.", "themes": ["heritage"], "typology": "geography", "wikidata": "Q9259", "wikipedia": "World_Heritage_Site"}].map(d => d.dataset),
+    LayerControlOptions: {
+      layerURLParamName: "dataset",
+    }
+  })
+
+  // extend the filter checkbox component to work with the map
+  const $fgStatusUpdate = $controlsList.querySelector('.app-filter-group__status-update')
+  extendFilterCheckboxes($fgStatusUpdate)
+
+  var $filterCheckboxes = document.querySelectorAll('[data-module="filter-checkboxes"]')
+  $filterCheckboxes.forEach(el => {
+    new window
+      .DLFrontend
+      .FilterCheckboxes(el)
+      .init()
+  })
+</script>
+
+
+{% endblock %}
