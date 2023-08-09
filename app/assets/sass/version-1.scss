@@ -479,9 +479,6 @@ svg:not(:root) {
     flex-direction: column-reverse;
 }
 
-.app-card__header__primary {
-    padding: 15px !important;
-}
 
 .app-card__header__secondary {
     display: flex;
@@ -494,7 +491,10 @@ svg:not(:root) {
 }
 
  
-
+dd {
+    display: block;
+    margin-inline-start: 25px;
+}
 
 
 @media (min-width: 40.0625em) {
@@ -502,7 +502,7 @@ svg:not(:root) {
     font-size: 19px;
     font-size: 1.1875rem;
     line-height: 1.31579;
-    margin-left: 25px;
+  
 }}
 
 .app-card--result {
