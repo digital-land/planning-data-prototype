@@ -487,10 +487,9 @@ svg:not(:root) {
     justify-content: space-between;
     align-items: center;
     background: #f3f2f1;
-   
 }
 
- 
+
 dd {
     display: block;
     margin-inline-start: 25px;
@@ -537,7 +536,6 @@ dd {
 }
 }
 
-
 @media (min-width: 40.0625em) {
 .app-card__footer, .app-card__body {
     padding: 25px;
@@ -565,7 +563,6 @@ dd {
     display: block;
     clear: both;
 }
-
 
 
 // pagination //
