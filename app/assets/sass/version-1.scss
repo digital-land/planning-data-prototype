@@ -103,50 +103,137 @@ h2 {
 }
 
 
-@media (min-width: 40.0625em) {
-.app-hero--large .app-hero__title {
-    font-size: 3rem;
-    line-height: 1.04167;
+.app-hero {
+    padding-bottom: 25px;
     padding-top: 0;
-}
-}
-
-.app-hero--large .app-hero__title {
+    color: #ffffff;
+    background-color: #1d70b8;
+    margin-top: -10px;
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-weight: 700;
-}
-@media (min-width: 40.0625em) {
-.app-hero__title {
-    padding-top: 30px;
-}
-}
-
- @media (min-width: 40.0625em) {
- .app-hero {
-     padding-bottom: 40px;
- }
- }
-
-@media (min-width: 40.0625em) {
-.app-hero--large .app-hero__description {
-    font-size: 1.5rem;
-    line-height: 1.25;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400; }
+    @media (min-width: 40.0625em) {
+      .app-hero {
+        padding-bottom: 40px;
+        } }
+    @media print {
+      .app-hero {
+        font-family: sans-serif; } }
+  
+  .app-hero__title {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
-    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.04167;
+    padding-top: 20px;
+    margin-top: 0; }
+    @media print {
+      .app-hero__title {
+        font-family: sans-serif; } }
+    @media (min-width: 40.0625em) {
+      .app-hero__title {
+        font-size: 36px;
+        font-size: 2.25rem;
+        line-height: 1.11111; } }
+    @media print {
+      .app-hero__title {
+        font-size: 24pt;
+        line-height: 1.05; } }
+    @media (min-width: 40.0625em) {
+      .app-hero__title {
+        padding-top: 30px; } }
+  
+  .app-hero__description {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: inherit;
+    margin-bottom: 0; 
+    margin-top: 18px;
 }
-}
-.app-hero__description {
-    margin-top: 24px;
-    margin-bottom: 0;
-}
+    @media print {
+      .app-hero__description {
+        font-family: sans-serif; } }
+    @media (min-width: 40.0625em) {
+      .app-hero__description {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579; } }
+    @media print {
+      .app-hero__description {
+        font-size: 14pt;
+        line-height: 1.15; } }
+    .app-hero__description a:not(:focus) {
+      color: inherit; }
+  
+ .app-hero__image {
+    padding-top: 20px; }
+    @media (min-width: 40.0625em) {
+      .app-hero__image {
+        padding-top: 30px;
+        } }
+    .app-hero__image img {
+      max-width: 100%;
+      }
+    @media (max-width: 48.0525em) {
+      .app-hero__image {
+        display: none; } }
+  
+  .app-hero--large .app-hero__title {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 32px;
+    font-size: 2rem;
+    line-height: 1.09375; }
+    @media print {
+      .app-hero--large .app-hero__title {
+        font-family: sans-serif; } }
+    @media (min-width: 40.0625em) {
+      .app-hero--large .app-hero__title {
+        font-size: 48px;
+        font-size: 3rem;
+        line-height: 1.04167; } }
+    @media print {
+      .app-hero--large .app-hero__title {
+        font-size: 32pt;
+        line-height: 1.15; } }
+  
+  .app-hero--large .app-hero__description {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.11111; }
+    @media print {
+      .app-hero--large .app-hero__description {
+        font-family: sans-serif; } }
+    @media (min-width: 40.0625em) {
+      .app-hero--large .app-hero__description {
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.25; } }
+    @media print {
+      .app-hero--large .app-hero__description {
+        font-size: 18pt;
+        line-height: 1.15; } }
+  
 
 
-@media (min-width: 40.0625em) {
-.app-hero__image {
-    padding-top: 30px;
-}
-}
+
+
+
 
 .app-hero__cta-link {
     color: #ffffff !important;
@@ -169,9 +256,6 @@ h2 {
     padding: 0 15px;
 }
 
-.app-hero__image img {
-    max-width: 100%;
-}
 
 .dl-header .govuk-header__content {
     width: 100%;
