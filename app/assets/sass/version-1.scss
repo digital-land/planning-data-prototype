@@ -1,4 +1,6 @@
 
+
+
 // General styling and homepage
 
 .platform-font {
@@ -16,6 +18,7 @@ h2 {
     font-weight: bold;
 }
 
+// Header and footer 
 
 .govuk-footer {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
@@ -56,6 +59,21 @@ h2 {
     border-bottom: 10px solid #1d70b8;
 }
 
+.dl-header--full {
+    border-color: #1d70b8;
+}
+
+@media (min-width: 40.0625em) {
+.dl-container--full-width {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+}
+
+
+
+//End header and footer
+
 .app-hero {
     padding-top: 0;
     color: #ffffff;
@@ -73,6 +91,11 @@ h2 {
 .govuk-phase-banner {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.govuk-phase-banner_map {
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .app-phase-banner--inverse .govuk-link, .app-phase-banner--inverse .govuk-phase-banner__content {
