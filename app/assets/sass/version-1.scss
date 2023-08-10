@@ -930,10 +930,6 @@ details > summary:first-of-type {
     padding: 5px 50px 5px 10px;
 }
 
-.dl-filter-group__auto-filter {
-    display: none;
-    padding-bottom: 15px;
-}
 
 .dl-filter-group[open] .dl-filter-group__summary {
     padding-bottom: 10px;
@@ -1159,8 +1155,7 @@ details > summary:first-of-type {
     display: none;
     padding-bottom: 15px; }
   
-  .js-enabled .dl-filter-group__auto-filter {
-    display: block; }
+
   
   .dl-filter-group__auto-filter__input {
     padding-left: 30px;
@@ -1219,7 +1214,7 @@ details > summary:first-of-type {
     .dl-map__wrapper {
         border: 1px solid #b1b4b6;
         position: relative;
-        min-height: 700px;
+        min-height: 695px;
     }
 
     .dl-map__wrapper .dl-map {
@@ -1242,11 +1237,7 @@ details > summary:first-of-type {
         cursor: pointer !important;
     }
 
-    .dl-label__key {
-        display: block;
-        position: relative;
-        margin-left: 53px;
-    }
+
 
     .dl-label__key__symbol {
         box-sizing: border-box;
@@ -1258,13 +1249,13 @@ details > summary:first-of-type {
         margin-top: -8px;
         margin-left: -53px;
         border: 2px solid #b1b4b6;
-        background: rgba(243, 242, 241, 0.5);
+  
     }
 
     .dl-label__key  {
         position: absolute !important; 
         margin-top: 0px;
-        margin-left:90px;
+        margin-left:40px;
 
     }
 
@@ -1275,6 +1266,10 @@ details > summary:first-of-type {
     .dl-filter-group__auto-filter {
         display: none;
         padding-bottom: 15px;
+    }
+
+    .dl-label__key__symbol--circle {
+        border-radius: 50%;
     }
 
     .govuk-\!-margin-bottom-0 {
@@ -1344,10 +1339,12 @@ details > summary:first-of-type {
     }
 
     .dl-map__layer-item .govuk-checkboxes__item {
-        padding-right: 40px;
+        padding-right: 130px;
         padding-left: 0;
         cursor: pointer;
     }
+
+   
     .govuk-list, .app-prose ol, .app-prose ul:not([class]), .app-prose .table-of-contents ul {
         font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -1401,7 +1398,17 @@ details > summary:first-of-type {
         clear: left;
     }
 
-
+    .govuk-checkboxes__input {
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        top: -2px;
+        left: -2px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        opacity: 0;
+    }
 
 
     .mapboxgl-map {
@@ -1487,4 +1494,51 @@ details > summary:first-of-type {
 
 
  /// try this ///
+
+ .dl-map__layer-item .govuk-checkboxes__label:before {
+    top: 8px;
+    right: 0;
+    left: unset;
+    width: 24px;
+    height: 24px;
+}
+
+.govuk-checkboxes__label:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentcolor;
+    background: transparent;
+}
+
+.dl-map__layer-item .govuk-checkboxes__label:after {
+    top: 14px;
+    right: 4px;
+    left: unset;
+    width: 16px;
+    height: 9px;
+    border-width: 0 0 4px 4px;
+}
+
+.govuk-checkboxes__label:after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 23px;
+    height: 12px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
 
