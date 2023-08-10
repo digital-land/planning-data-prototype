@@ -48,8 +48,9 @@ crossorigin="" />
 
 <script src="/static/javascripts/digital-land-maps.js"></script>
 
-{% block content %}
-
+ {% block content %}
+ 
+          
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">National map of planning data</h1>
@@ -58,17 +59,14 @@ crossorigin="" />
 
   <p id="aria-label-national-map" class="govuk-body-l">National map of the planning data collected and collated by Planning Data.</p>
 
-  <div class="dl-map__wrapper" style="min-height: 700px; background-image: url(background-map.png)">
+  <div class="dl-map__wrapper" style="min-height: 700px; background-image: url(../assets/images/background-map.png)">
 
     <div class="zoom-controls" data-module="zoom-controls">
       <button class="zoom-controls__btn" data-zoom-control="in">
         <span class="govuk-visually-hidden">Zoom in</span>
         <span>+</span>
       </button>
-      <span class="zoom-controls__count-container" aria-live="polite">
-        <span class="govuk-visually-hidden">The map is at zoom level </span>
-        <span class="zoom-controls__count">6</span>
-      </span>
+
       <button class="zoom-controls__btn" data-zoom-control="out">
         <span class="govuk-visually-hidden">Zoom out</span>
         <span>-</span>
@@ -80,7 +78,7 @@ crossorigin="" />
     <div id="mapid" class="dl-map" aria-labelledby="aria-label-national-map"></div>
     <div class="dl-map__side-panel dl-map__side-panel--full js-hidden" tabindex="-1" role="dialog" aria-hidden="false" open="true" aria-modal="true">
       <div class="dl-map__side-panel__heading">
-        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Data layers</h3>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Data layers</h3>   <button class="dl-map__close-btn" data-action="close"><span class="govuk-visually-hidden">Close layer panel</span></button>
       </div>
       <div class="dl-map__side-panel__content">
         <div class="govuk-checkboxes" data-module="filter-checkboxes">
@@ -92,8 +90,7 @@ crossorigin="" />
           </div>
           <ul class="govuk-list govuk-!-margin-bottom-0" data-module="layer-controls" role="group">
             <span id="checkbox-filter-71108" class="dl-filter-group__auto-filter__desc govuk-visually-hidden" aria-live="polite" data-single="option found" data-multiple="options found" data-selected="selected">33 options found, 0 selected</span>
-            <span class="app-filter-group__status-update js-hidden govuk-!-padding-bottom-3 dl-secondary-text" aria-live="polite" data-single="dataset" data-multiple="datasets">0 datasets hidden</span>
-            
+             
               
       <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="ancient-woodland"
        data-style-options="#00703c,0.2">
@@ -624,100 +621,23 @@ crossorigin="" />
             
         </ul>
       </div>
+    
     </div>
+   
+
   </div>
+
 </div>
 <div class="app-c-sources-panel govuk-!-margin-bottom-4">
     <p>Find, understand and download the <a href="/dataset" class="govuk-link">datasets used to create this map</a>.</p>
 </div>
 
-<p class="govuk-body govuk-!-margin-bottom-0 govuk-!-width-two-thirds">This prototype map is automatically created using data from planning.data.gov.uk. Find out more <a href="/about">about the Planning Data Platform</a></p>
+<p class="govuk-body govuk-!-margin-bottom-0 govuk-!-width-two-thirds">This prototype map is automatically created using data from planning.data.gov.uk. Find out more <a href="../about/about.html">about the Planning Data Platform</a></p>
 
 
         </main>
       </div>
     
-
-    
-	
-	
-
-  <footer class="govuk-footer " role="contentinfo">
-  <div class="govuk-width-container dl-container--full-width">
-    
-    <div class="govuk-footer__meta">
-      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-        
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          
-            <ul class="govuk-footer__inline-list">
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/service-status">
-                    Service status
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/about/roadmap">
-                    Roadmap
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/guidance">
-                    Guidance for publishers
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
-                    Accessibility statement
-                  </a>
-                </li>
-              
-            </ul>
-          
-          
-            <div class="govuk-footer__meta-custom">
-              Built by the <a href="https://www.gov.uk/government/organisations/department-for-levelling-up-housing-and-communities" class="govuk-footer__link">Department for Levelling Up, Housing and Communities</a>
-            </div>
-          
-        
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          class="govuk-footer__licence-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 483.2 195.7"
-          height="17"
-          width="41"
-        >
-          <path
-            fill="currentColor"
-            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
-          />
-        </svg>
-        <span class="govuk-footer__licence-description">
-          
-            All content is available under the
-            <a
-              class="govuk-footer__link"
-              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-              rel="license"
-            >Open Government Licence v3.0</a>, except where otherwise stated
-          
-        </span>
-      </div>
-      <div class="govuk-footer__meta-item">
-        <a
-          class="govuk-footer__link govuk-footer__copyright-logo"
-          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-          >© Crown copyright</a>
-      </div>
-    </div>
-  </div>
-</footer>
 
 
 
