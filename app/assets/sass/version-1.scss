@@ -1261,6 +1261,13 @@ details > summary:first-of-type {
         background: rgba(243, 242, 241, 0.5);
     }
 
+    .dl-label__key  {
+        position: absolute !important; 
+        margin-top: 0px;
+        margin-left:90px;
+
+    }
+
     .js-enabled .dl-filter-group__auto-filter {
         display: block;
     }
