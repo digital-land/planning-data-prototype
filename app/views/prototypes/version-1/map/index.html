@@ -21,7 +21,6 @@
   <meta name="theme-color" content="#062058">
   
 
-
     
 	<meta name="digital-land:template" content="dl-info/national-map.html">
 
@@ -50,16 +49,16 @@ crossorigin="" />
 
  {% block content %}
  
-          
+     
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full" >
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">National map of planning data</h1>
     </div>
   </div>
 
   <p id="aria-label-national-map" class="govuk-body-l">National map of the planning data collected and collated by Planning Data.</p>
 
-  <div class="dl-map__wrapper" style="min-height: 700px; background-image: url(../assets/images/background-map.png)">
+  <div class="dl-map__wrapper" style="min-height: 695px; background-image: url(../assets/images/background-map.png)">
 
     <div class="zoom-controls" data-module="zoom-controls">
       <button class="zoom-controls__btn" data-zoom-control="in">
@@ -108,7 +107,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="area-of-outstanding-natural-beauty"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="area-of-outstanding-natural-beauty"
        data-style-options="#d53880,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="area-of-outstanding-natural-beauty" name="area-of-outstanding-natural-beauty" type="checkbox" value="area-of-outstanding-natural-beauty" >
@@ -188,7 +187,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="building-preservation-notice"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="building-preservation-notice"
        data-style-options="#f944c7,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="building-preservation-notice" name="building-preservation-notice" type="checkbox" value="building-preservation-notice" >
@@ -380,7 +379,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="local-planning-authority"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="local-planning-authority"
        data-style-options="">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="local-planning-authority" name="local-planning-authority" type="checkbox" value="local-planning-authority" >
@@ -428,7 +427,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="park-and-garden"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="park-and-garden"
        data-style-options="#0EB951,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="park-and-garden" name="park-and-garden" type="checkbox" value="park-and-garden" >
@@ -508,7 +507,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="site-of-special-scientific-interest"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="site-of-special-scientific-interest"
        data-style-options="#308fac,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="site-of-special-scientific-interest" name="site-of-special-scientific-interest" type="checkbox" value="site-of-special-scientific-interest" >
@@ -524,7 +523,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="special-area-of-conservation"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="special-area-of-conservation"
        data-style-options="#7A8705,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="special-area-of-conservation" name="special-area-of-conservation" type="checkbox" value="special-area-of-conservation" >
@@ -540,7 +539,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="special-protection-area"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="special-protection-area"
        data-style-options="">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="special-protection-area" name="special-protection-area" type="checkbox" value="special-protection-area" >
@@ -604,7 +603,7 @@ crossorigin="" />
     
             
               
-      <li class="dl-map__layer-item govuk-!-margin-bottom-2" data-layer-control="world-heritage-site-buffer-zone"
+      <li class="dl-map__layer-item govuk-!-margin-bottom-2 govuk-!-padding-bottom-3" data-layer-control="world-heritage-site-buffer-zone"
        data-style-options="#EB1EE5,">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="world-heritage-site-buffer-zone" name="world-heritage-site-buffer-zone" type="checkbox" value="world-heritage-site-buffer-zone" >
@@ -628,8 +627,8 @@ crossorigin="" />
   </div>
 
 </div>
-<div class="app-c-sources-panel govuk-!-margin-bottom-4">
-    <p>Find, understand and download the <a href="/dataset" class="govuk-link">datasets used to create this map</a>.</p>
+<div class="app-c-sources-panel govuk-!-margin-bottom-5">
+    <p class="govuk-!-margin-bottom-0">Find, understand and download the <a href="../datasets/index.html" class="govuk-link">datasets used to create this map</a>.</p>
 </div>
 
 <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-width-two-thirds">This prototype map is automatically created using data from planning.data.gov.uk. Find out more <a href="../about/about.html">about the Planning Data Platform</a></p>

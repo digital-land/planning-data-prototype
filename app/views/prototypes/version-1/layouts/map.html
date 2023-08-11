@@ -8,6 +8,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 <header class="govuk-header dl-header dl-header--full" role="banner" data-module="govuk-header">
+  <style>
+    .govuk-width-container {
+    max-width: 100% !important;
+    margin-right: 35px;
+    margin-left: 35px;
+
+  } 
+  
+</style>
     <div class="govuk-header__container govuk-header__container-border govuk-width-container dl-container--full-width">
       <div class="govuk-header__logo">
         <a href="/{{ prototypeVersion }}/home" class="govuk-header__link govuk-header__link--homepage">
@@ -59,17 +68,16 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         </span>
       </p>
     </div>
-    <div class="govuk-width-container ">
+    <div class="govuk-width-container">
 
       {% block breadcrumbs %}{% endblock breadcrumbs %}
     </div>
-
-
-  
+    
+   
 
 {% endblock %}
-
-
+ 
+ 
 {% block footer %}
 <footer class="govuk-footer " role="contentinfo">
   <div class="dl-container--full-width">
@@ -81,26 +89,23 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
           
             <ul class="govuk-footer__inline-list">
               
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/service-status">
-                    Service status
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/about/roadmap">
-                    Roadmap
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/guidance">
-                    Guidance for publishers
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+              <li class="govuk-footer__inline-list-item">
+                <a class="govuk-footer__link" href="../service-status/service-status">
+                  Service status
+                </a>
+              </li>
+              <li class="govuk-footer__inline-list-item">
+                <a class="govuk-footer__link" href="../about/roadmap">
+                  Roadmap
+                </a>
+              </li>
+              <li class="govuk-footer__inline-list-item">
+                <a class="govuk-footer__link" href="../guidance/index.html">
+                  Guidance for publishers
+                </a>
+              </li>
+              <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="../accessibility/statement.html">
                     Accessibility statement
                   </a>
                 </li>
