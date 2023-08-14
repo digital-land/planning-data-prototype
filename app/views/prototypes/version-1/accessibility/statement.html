@@ -2,6 +2,9 @@
 
 {% set pageName="Home" %}
 
+{%- block breadcrumbs -%}
+<a href="#" class="govuk-back-link" onclick="javascript:history.back()">Back</a>
+{% endblock breadcrumbs%}
 
 {% block content %}
 
@@ -10,7 +13,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <div class="app-prose">
-      <h1 class="govuk-heading-xl govuk-!-margin-top-3">Accessibility statement</h1>
+      <h1 class="govuk-heading-xl">Accessibility statement</h1>
 
    <p>This accessibility statement applies to the planning.data.gov.uk website: <a href="https://www.planning.data.gov.uk">https://www.planning.data.gov.uk</a>.</p>
    <p>This website is run by the Planning Data team in the Department for Levelling Up, Housing and Communities</p>
@@ -116,7 +119,6 @@
 
     </div>
   </div>
-</div>
 </div>
 
 {% endblock %}

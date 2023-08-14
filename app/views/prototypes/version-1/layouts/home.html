@@ -8,60 +8,66 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 <header class="govuk-header " role="banner" data-module="govuk-header">
-    <div class="govuk-header__container govuk-width-container">
-      <div class="govuk-header__logo">
-        <a href="/{{ prototypeVersion }}/home" class="govuk-header__link govuk-header__link--homepage">
-          <span class="govuk-header__logotype">
-            <span class="govuk-header__logotype-text">
-              planning.data.gov.uk
-            </span>
+  <div class="govuk-header__container govuk-header__container-border govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="/{{ prototypeVersion }}/home" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <span class="govuk-header__logotype-text">
+            planning.data.gov.uk
           </span>
-        </a>
-      </div>
-      <nav class="govuk-header__navigation" aria-label="Menu">
-        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">Menu</button>
-        <ul id="navigation" class="govuk-header__navigation-list">
-          
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="about/about">About</a>
-          </li>
-          
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="datasets/index">Datasets</a>
-          </li>
-          
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="entity/index">Search</a>
-          </li>
-          
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="map/index">Map</a>
-          </li>
-          
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="documentation/index.html">Documentation</a>
-          </li>
-          
-        </ul>
-      </nav>
+        </span>
+      </a>
     </div>
-  </header>
+    <nav class="govuk-header__navigation govuk-header__navigation--less-margin" aria-label="Menu">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation" aria-expanded="false">Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+        
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="about/about.html">About</a>
+        </li>
+        
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="datasets/index.html">Datasets</a>
+        </li>
+        
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="entity/index.html">Search</a>
+        </li>
+        
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="map/index.html">Map</a>
+        </li>
+        
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="documentation/index.html">Documentation</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  
 
-  <div class="app-hero app-hero--large govuk-!-margin-bottom-4">
-    <div class="govuk-width-container">
-      
-  <div class="govuk-phase-banner app-phase-banner--inverse">
+<div class="govuk-width-container govuk-!-margin-bottom-2">
+
+  <div class="govuk-phase-banner govuk-phase-banner_no-border">
     <p class="govuk-phase-banner__content">
-      <strong class="govuk-tag govuk-phase-banner__content__tag app-tag--inverse">
+      <strong class="govuk-tag govuk-phase-banner__content__tag ">
         Beta
       </strong>
       <span class="govuk-phase-banner__text">
-        This is a new service.
+        This is a new service – to help us improve it, <a href="#">sign up to take part in research</a>
       </span>
     </p>
   </div>
+
+    {% block breadcrumbs %}{% endblock breadcrumbs %}
+  </div>
+
+
+  <div class="app-hero app-hero--large govuk-!-margin-bottom-4">
+    <div class="govuk-width-container">
+
   
   
       <div class="govuk-grid-row">

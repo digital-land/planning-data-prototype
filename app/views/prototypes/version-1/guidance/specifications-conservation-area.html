@@ -3,22 +3,7 @@
 {% set pageName="Home" %}
 
 {%- block breadcrumbs -%}
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="guidance-home">Guidance</a>
-      </li>
-
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="specifications-home">specifications</a>
-      </li>
-
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="specifications-conservation-area">conservation area</a>
-      </li>
-
-    </ol>
-  </div> 
+<a href="#" class="govuk-back-link" onclick="javascript:history.back()">Back</a>
 {% endblock breadcrumbs%}
 
 {% block content %}
@@ -27,89 +12,59 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third" id="content_secondary">
       <a href="#content_primary" class="govuk-visually-hidden">Skip guidance navigation</a>
-      
-
-        
-
-        
-
-        
+          
 <nav class="app-sub-navigation" aria-labelledby="app-sub-navigation-heading">
   <h2 class="govuk-visually-hidden" id="app-sub-navigation-heading">Guidance navigation</h2>
   
     
       <h3 class="app-sub-navigation__theme">Guidance for local planning authorities</h3>
       
-    <ul class="app-sub-navigation__section">
+      <ul class="app-sub-navigation__section">
       
-        
-        
-        
-        
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="index">Guidance home</a>
           
-        
-      <li class="app-sub-navigation__section-item">
-        <a class="app-sub-navigation__link" href="guidance-home">Guidance home</a>
-        
-      </li>
-    
-      
-      
-      
-      
-        
-      
-      <li class="app-sub-navigation__section-item">
-        <a class="app-sub-navigation__link" href="guidance-intro">Introduction</a>
-        
-      </li>
-    
-      
-      
-      
-      
-        
-      
-      <li class="app-sub-navigation__section-item">
-        <a class="app-sub-navigation__link" href="guidance-provide">How to provide data</a>
-        
-      </li>
-      
-        
-        
-        
-        
-          
-        
-        <li class="app-sub-navigation__section-item app-sub-navigation__section-item--current"">
-          <a class="app-sub-navigation__link" href="specifications-home">Data specifications guidance</a>
-          
-          <ul class="app-sub-navigation__section app-sub-navigation__section--nested">
-              
-            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
-              <a class="app-sub-navigation__link" href="specifications-conservation-area" aria-current="true">Conservation area data</a>
-            </li>
-          <!-- 
-            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
-              <a class="app-sub-navigation__link" href="specifications-design-code">Design code data</a>
-            </li>
-          -->
-            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
-              <a class="app-sub-navigation__link" href="specifications-listed-building">Listed building data</a>
-            </li>
-          
-            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
-              <a class="app-sub-navigation__link" href="specifications-article-4-direction">Article 4 Direction data</a>
-            </li>
-          
-            <li class="app-sub-navigation__section-item govuk-!-font-size-16">
-              <a class="app-sub-navigation__link" href="specifications-tree-preservation-order">Tree preservation order data</a>
-            </li>
-          
-        </ul>
         </li>
-      
-    </ul>
+  
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="guidance-intro">Introduction</a>
+          
+        </li>
+  
+        <li class="app-sub-navigation__section-item">
+          <a class="app-sub-navigation__link" href="guidance-provide">How to provide data</a>
+          
+        </li>
+        
+          <li class="app-sub-navigation__section-item app-sub-navigation__section-item--current"">
+            <a class="app-sub-navigation__link" href="specifications-home">Data specifications guidance</a>
+            
+            <ul class="app-sub-navigation__section app-sub-navigation__section--nested">
+                
+              <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+                <a class="app-sub-navigation__link" href="specifications-conservation-area" >Conservation area data</a>
+              </li>
+            <!-- 
+              <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+                <a class="app-sub-navigation__link" href="specifications-design-code">Design code data</a>
+              </li>
+            -->
+              <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+                <a class="app-sub-navigation__link" href="specifications-listed-building">Listed building data</a>
+              </li>
+            
+              <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+                <a class="app-sub-navigation__link" href="specifications-article-4-direction" aria-current="true">Article 4 Direction data</a>
+              </li>
+            
+              <li class="app-sub-navigation__section-item govuk-!-font-size-16">
+                <a class="app-sub-navigation__link" href="specifications-tree-preservation-order">Tree preservation order data</a>
+              </li>
+            
+          </ul>
+          </li>
+        
+      </ul>
 
     
   
@@ -119,13 +74,8 @@
 
     <h1 class="govuk-heading-xl">Conservation area data</h1>
         
-      
-
     <div class="app-prose">
       
-
-  
-
   <p class="govuk-body">There are 2 datasets you must provide for conservation area data:</p>
 <ul class="govuk-list govuk-list--bullet">
 <li><a class="govuk-link" href="#conservation-area-dataset">conservation area dataset</a></li>

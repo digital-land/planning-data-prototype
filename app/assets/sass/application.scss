@@ -109,3 +109,15 @@ p, .govuk-body, .govuk-body-m {
 .govuk-link-19 {
     font-size: 19px;
 }
+
+.govuk-back-link {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", 
+}
+
+@media (min-width: 40.0625em) {
+    .govuk-main-wrapper {
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  }
+  
