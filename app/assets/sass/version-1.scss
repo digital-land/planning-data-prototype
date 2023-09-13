@@ -4,7 +4,7 @@
 // General styling and homepage
 
 .platform-font {
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 
@@ -23,18 +23,18 @@ h2 {
     padding-right: 5px;
 }
 
-// Header and footer 
+// Header and footer
 
 .govuk-footer {
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 .govuk-footer__link {
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 .govuk-header__link--homepage {
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     font-size: 1.5rem;
 }
 
@@ -43,7 +43,7 @@ h2 {
 }
 
 .govuk-header__navigation-item a {
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif; 
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 @media (min-width: 48.0625em) {
@@ -152,7 +152,7 @@ h2 {
     @media print {
       .app-hero {
         font-family: sans-serif; } }
-  
+
   .app-hero__title {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -178,7 +178,7 @@ h2 {
     @media (min-width: 40.0625em) {
       .app-hero__title {
         padding-top: 30px; } }
-  
+
   .app-hero__description {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -188,7 +188,7 @@ h2 {
     font-size: 1rem;
     line-height: 1.25;
     color: inherit;
-    margin-bottom: 0; 
+    margin-bottom: 0;
     margin-top: 18px;
 }
     @media print {
@@ -205,7 +205,7 @@ h2 {
         line-height: 1.15; } }
     .app-hero__description a:not(:focus) {
       color: inherit; }
-  
+
  .app-hero__image {
     padding-top: 20px; }
     @media (min-width: 40.0625em) {
@@ -218,7 +218,7 @@ h2 {
     @media (max-width: 48.0525em) {
       .app-hero__image {
         display: none; } }
-  
+
   .app-hero--large .app-hero__title {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -239,7 +239,7 @@ h2 {
       .app-hero--large .app-hero__title {
         font-size: 32pt;
         line-height: 1.15; } }
-  
+
   .app-hero--large .app-hero__description {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -260,7 +260,7 @@ h2 {
       .app-hero--large .app-hero__description {
         font-size: 18pt;
         line-height: 1.15; } }
-  
+
 
 
 
@@ -294,7 +294,7 @@ h2 {
     padding-left: 0;
 }
 
-// Sub-navigation 
+// Sub-navigation
 
 .app-sub-navigation {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
@@ -381,7 +381,7 @@ h2 {
 }
 
 .govuk-body-l--small {
-    
+
     font-size: 19px;
 }
 
@@ -409,10 +409,10 @@ h2 {
 }
 
     @media (min-width: 40.0625em) {
-        .app-prose ul:not([class]) {  
+        .app-prose ul:not([class]) {
         font-size: 1.1875rem;
         line-height: 1.31579;
-        }   
+        }
     }
 
     @media (min-width: 40.0625em) {
@@ -446,7 +446,7 @@ h2 {
     font-size: 19px!important;
 }
 
- 
+
 .app-summary-card .app-summary-card__header {
     align-items: center;
     background-color: #f3f2f1;
@@ -498,7 +498,7 @@ h2 {
     line-height: 1.6;
 }
 
-// Code block 
+// Code block
 
 .app-code-block--inline {
     display: inline-block;
@@ -545,7 +545,7 @@ svg:not(:root) {
     border-right-width: 0;
     border-bottom-width: 0;
 }
- 
+
 .govuk-heading-s, .app-results-summary__title, .app-prose h4:not([class]), .app-prose figcaption h3 {
     color: #0b0c0c;
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
@@ -564,7 +564,7 @@ svg:not(:root) {
 .govuk-heading-s, .app-results-summary__title, .app-prose h4:not([class]), .app-prose figcaption h3 {
     font-size: 19px;
     font-size: 1.1875rem;
-    
+
     line-height: 1.31579;
 }}
 
@@ -598,7 +598,7 @@ svg:not(:root) {
 
 .app-card__header__secondary {
     display: flex;
-    padding-right: 15px !important; 
+    padding-right: 15px !important;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
@@ -723,11 +723,11 @@ dd {
         font-weight: 400;
     }
     }
-    
+
 .app-pagination__link-label {
     display: inline-block;
-    text-decoration: none; 
-     
+    text-decoration: none;
+
 }
 
 .app-pagination__button {
@@ -804,7 +804,7 @@ dd {
 
 .dl-filter-group {
     padding: 5px;
-    background: #f3f2f1;
+    background: #ffffff;
 }
 
 .dl-filter-group__summary {
@@ -872,7 +872,7 @@ details > summary:first-of-type {
     margin-bottom: 30px;
 }}
 
- 
+
 
 .app-list--files {
     margin: 0;
@@ -882,7 +882,7 @@ details > summary:first-of-type {
     list-style-type: none;
     width: 100%;
 }
- 
+
 .app-results-actions__row {
     display: flex;
     width: 100%;
@@ -894,7 +894,7 @@ details > summary:first-of-type {
 .app-filter-group__body {
     background: #ffffff;
 }
- 
+
 .govuk-checkboxes__item {
     font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -1002,7 +1002,7 @@ details > summary:first-of-type {
 
 
 
-// Filter list 
+// Filter list
 
 
 .dl-list-filter__list {
@@ -1043,15 +1043,15 @@ details > summary:first-of-type {
 .dl-list-filter__label {
     display: inline;
     padding-right: 5px;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;   
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 }
 
 .dl-filter-group > .dl-filter-group__heading {
     padding: 5px 10px 10px; }
-  
+
   .dl-filter-group > .app-filter-group__body {
     padding: 10px; }
-  
+
   .app-filter-group__body {
     background: #ffffff; }
     .app-filter-group__body .govuk-form-group {
@@ -1061,11 +1061,12 @@ details > summary:first-of-type {
           margin-bottom: 15px; } }
     .app-filter-group__body .govuk-form-group:last-child {
       margin-bottom: 0; }
-  
+
   .dl-filter-group {
     padding: 5px;
-    background: #f3f2f1; }
-  
+    background: #ffffff;
+   border-bottom: 1px;}
+
   .dl-filter-group__summary {
     display: block;
     position: relative;
@@ -1080,7 +1081,7 @@ details > summary:first-of-type {
       text-decoration: none; }
     .dl-filter-group__summary::-webkit-details-marker {
       display: none; }
-  
+
   .dl-filter-group__icon {
     position: absolute;
     top: 0;
@@ -1088,31 +1089,31 @@ details > summary:first-of-type {
     width: 30px;
     height: 35px;
     fill: currentColor; }
-  
+
   .dl-filter-group__icon--up {
     display: none; }
-  
+
   .dl-filter-group[open] .dl-filter-group__summary {
     padding-bottom: 10px;
     }
-  
+
   .dl-filter-group[open] .dl-filter-group__icon--down {
     display: none; }
-  
+
   .dl-filter-group[open] .dl-filter-group__icon--up {
     display: inline-block; }
-  
+
   .dl-filter-group__fieldset {
     max-height: 200px;
     padding: 10px 10px 5px;
     overflow-x: hidden;
     overflow-y: auto;
     background: #ffffff; }
-  
+
   .dl-filter-group__heading {
     display: inline-block;
     margin-bottom: 0; }
-  
+
   .dl-filter-group__selected-text {
     display: block;
     color: #0b0c0c;
@@ -1138,18 +1139,18 @@ details > summary:first-of-type {
       .dl-filter-group__selected-text {
         font-size: 12pt;
         line-height: 1.2; } }
-  
+
   .dl-filter-group__auto-filter {
     display: none;
     padding-bottom: 15px; }
-  
 
-  
+
+
   .dl-filter-group__auto-filter__input {
     padding-left: 30px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' width='40' height='40'%3E%3Cpath d='M25.7 24.8L21.9 21c.7-1 1.1-2.2 1.1-3.5 0-3.6-2.9-6.5-6.5-6.5S10 13.9 10 17.5s2.9 6.5 6.5 6.5c1.6 0 3-.6 4.1-1.5l3.7 3.7 1.4-1.4zM12 17.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5-2 4.5-4.5 4.5-4.5-2-4.5-4.5z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E") #ffffff no-repeat -5px -3px;
      }
-  
+
 
        // Map styling //
 
@@ -1158,7 +1159,7 @@ details > summary:first-of-type {
         padding-bottom: 15px;
     }
 
-    
+
             @media (max-width: 40.0525em){
         .dl-map__side-panel {
             top: 10px;
@@ -1229,7 +1230,7 @@ details > summary:first-of-type {
 
     .dl-label__key__symbol {
         box-sizing: border-box;
-        position: absolute !important; 
+        position: absolute !important;
         top: 0;
         left: 0;
         width: 40px;
@@ -1237,11 +1238,11 @@ details > summary:first-of-type {
         margin-top: -8px;
         margin-left: -53px;
         border: 2px solid #b1b4b6;
-  
+
     }
 
     .dl-label__key  {
-        position: absolute !important; 
+        position: absolute !important;
         margin-top: 0px;
         margin-left:40px;
         max-width: 165px;
@@ -1272,7 +1273,7 @@ details > summary:first-of-type {
     .govuk-\!-margin-bottom-4 {
         margin-bottom: 15px !important;
     }
- 
+
     .app-c-sources-panel {
         background-color: #f3f2f1;
         border: 1px solid #b1b4b6;
@@ -1507,7 +1508,7 @@ details > summary:first-of-type {
     border: none;
     background: none;
 }
- 
+
 .dl-label__key__symbol--pin {
     box-sizing: border-box;
     position: absolute;
