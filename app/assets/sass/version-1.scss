@@ -1355,6 +1355,8 @@ details > summary:first-of-type {
         clear: left;
     }
 
+    
+
     .govuk-checkboxes__input {
         cursor: pointer;
         position: absolute;
@@ -1367,6 +1369,21 @@ details > summary:first-of-type {
         opacity: 0;
     }
 
+    @media (min-width: 40.0625em) {
+.govuk-label {
+    font-size: 19px;
+    font-size: 1rem;
+    line-height: 1.3157894737;
+}
+    }
+
+    @media (min-width: 40.0625em) {
+.govuk-hint {
+    font-size: 19px;
+    font-size: 1rem;
+    line-height: 1.3157894737;
+}
+    }
 
     .mapboxgl-map {
         font: 12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;
