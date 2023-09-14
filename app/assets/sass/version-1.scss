@@ -587,6 +587,7 @@ svg:not(:root) {
     border: 1px solid #b1b4b6;
     border-bottom-width: 2px;
     border-radius: 0.15em;
+    margin-bottom: 15px;
 }
 
 .app-card__header {
@@ -637,11 +638,7 @@ dd {
     border-bottom: 1px solid #0b0c0c;
 }
 
-@media (min-width: 40.0625em) {
-.app-results-list__item {
-    margin-bottom: 30px;
-}
-}
+
 
 @media (min-width: 40.0625em) {
 .app-card__footer, .app-card__body {
