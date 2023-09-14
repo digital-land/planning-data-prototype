@@ -798,6 +798,16 @@ dd {
 }
 }
 
+// tidy the cards for mobile view //
+
+.govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
+    margin-left: 25px;
+}
+
+// reduce vertical spacing in card //
+.app-card__title, .app-prose h3:not([class]) {
+    margin-bottom: 5px;
+}
 
 ///top filter results display //
 
