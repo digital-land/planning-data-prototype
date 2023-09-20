@@ -842,12 +842,17 @@ dd {
 
 .dl-link--mono, .app-u-font-mono {
     font-family: monospace;
+    font-size: 14px;
 }
 
 .app-applied-filter__button {
     font-family: monospace;
     line-height: 1em;
     text-decoration: none;
+}
+
+.app-applied-filter__name { 
+    font-size: 16px;
 }
  
 
